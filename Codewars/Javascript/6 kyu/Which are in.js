@@ -15,15 +15,17 @@ function inArray(array1,array2){
 }
 
 //TODO analizar esta 
-function inArray(arr1, arr2) {
-    return arr1.filter(function(needle) {
-      return arr2.some(function(haystack) {
-        return haystack.indexOf(needle) > -1;
-      });
-    }).sort();
-  }
+function inArrayUp(arr1, arr2) {
+  return arr1.filter(e => {
+    return arr2.some(w => w.indexOf(e)> -1)
+  })
+}
+
+function inArrayUp2(a1,a2) {
+  
+}
 
 
 a1 = ["xyz", "live", "strong"]
 a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
-console.log(inArray(a1, a2));
+console.log(inArrayUp(a1, a2));

@@ -52,4 +52,4 @@ var sum_pairsJack = function (ints, s) {
 }
 
 
-console.log(sum_pairsJack([1, 4, 8, 7, 3, 15], 8));
+console.log(sum_pairsJack([1, 4, 1, 7, 3, 15], 2));

@@ -47,6 +47,8 @@ recharges: {
 }
 };
 
-let str='1:Hello Israel';
-let a= new RegExp(/Hello/)
-console.log(a.exec(str[2]));
+let a='0123456789'
+for(let i=0; i<=9; i++){
+  console.log(a[i].charCodeAt());
+}
+
