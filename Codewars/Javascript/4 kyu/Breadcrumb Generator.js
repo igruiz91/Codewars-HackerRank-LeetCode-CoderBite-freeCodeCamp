@@ -16,7 +16,7 @@ function generateBC(url, separator) {
         if(sites.length<2) return def;
     }
     
-    console.log(sites); // arreglo de sitios luego de limpiar los index
+    //console.log(sites); // arreglo de sitios luego de limpiar los index
 
     let lastPosition = `${separator}<span class="active">${clearLastPosition(last)}</span>`;
 
@@ -62,15 +62,15 @@ function clearURL(str) {
 
 //console.log(clearURL("www.agcpartners.co.uk"));
 
-console.log(clearStrings('pictures-you-wished-you-never-saw-but-you-cannot-unsee-now')); 
+//console.log(clearStrings('https://getbootstrap.com/docs/4.3/layout/grid/')); 
 // console.log(clearLastPosition('index.php'));
 // console.log(clearLastPosition('home.html'));
 // console.log(clearLastPosition('home?direction.asp'));
 
 // console.log(shortenStr('very-long-site_name-to-make-a-silly-yet'));
 
-//console.log(generateBC("https://codewars.com/pictures-you-wished-you-never-saw-but-you-cannot-unsee-now/most-downloaded/wanted/from-a-paper-biotechnology", " : "));
+console.log(generateBC("https://getbootstrap.com/docs/4.3/layout/grid/", " : "));
 
-`gt;FROM A PAPER BIOTECHNOLOGY&lt;/span&gt; - instead got: &lt;a href="/"&gt;HOME&lt;/a&gt; : &lt;a href="/pictures-you-wished-you-never-saw-but-you-cannot-unsee-now/"&gt;PYWYNSBYCUN&lt;/a&gt; : &lt;a href="/pictures-you-wished-you-never-saw-but-you-cannot-unsee-now/most-downloaded/"&gt;MOST DOWNLOADED&lt;/a&gt; : &lt;a href="/pictures-you-wished-you-never-saw-but-you-cannot-unsee-now/most-downloaded/wanted/"&gt;WANTED&lt;/a&gt; : &lt;span class="active"&gt;FROM PAPER BIOTECHNOLOGY&lt;/span&gt;`
+
 
 
