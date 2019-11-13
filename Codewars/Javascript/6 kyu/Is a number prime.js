@@ -53,6 +53,12 @@ function isPrime(numero)
     }
     return primo;
 }
+let primes=[]
+for(let i=2; i<10000; i++){
+    if(isPrime(i))
+    primes.push(i)
+}
+console.log(primes);
 
 console.log(isPrime(3));
 console.log(isPrime(73));
