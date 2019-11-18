@@ -3,7 +3,7 @@ let x=5
 let y=8
 let r;
 
-for(i of $)r?r+=x<i&&i<y:r=0
+for(i of $)r+=x<i&&i<y
 
 console.log(r);
 
