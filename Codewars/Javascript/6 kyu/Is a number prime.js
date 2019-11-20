@@ -36,22 +36,17 @@ function isPrime(n) {
 
 function isPrime(numero)
 {
-    let primo = true;
-    if(numero<2)
-    {
-        primo = false;
-    }
+    if(numero<2) return false
     else
     {
         for(let x=2; x*x<=numero; x++)
         {
             if( numero%x==0 ){
-                primo = false;
-                break;
+                return false
             }
         }
     }
-    return primo;
+    return true;
 }
 let primes=[]
 for(let i=2; i<10000; i++){
