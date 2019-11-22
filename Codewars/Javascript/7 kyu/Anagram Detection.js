@@ -1,6 +1,13 @@
 var isAnagram = function(test, original) {
-    test = test.split('').map(n => n? n++: n=1,{})
-    return test
+    const transform = str => str.toLowerCase().split('').sort().join('');
+    return transform(test) == transform(original)
 };
 
-console.log(isAnagram("foefet", "toffee"));
+var isAnagramUp = (test, original) => {
+    var h = [...test.toLowerCase()].reduce((b,c) => (b[c]=(b[c]||0)+1, b),{});
+    h = [...original.toLowerCase()].reduce((b,c) => (b[c]=(b[c]||0)-1,b),h)
+    return Object.keys(h).every(k => h[k]===0)
+}
+
+
+console.log(isAnagramUp("foefet", "toffee"));

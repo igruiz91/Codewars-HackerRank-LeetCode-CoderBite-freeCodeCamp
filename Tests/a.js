@@ -1,36 +1,14 @@
 window.addEventListener('load', function(){
 
-  //inputs de busqueda
-  var inputCapitulo = document.getElementById("buscarPorCapitulo");
-  var inputDescripcion = document.getElementById("buscarPorDescripcion");
+  var menuPrevisionaliCapitolo = function menuPrevisionaliCapitolo() {
+    encabezado.innerHTML = "\n\t\t\t<th>Capitolo</th>\n\t\t\t<th>Anno gestione</th>\n\t\t\t<th>Descrizione</th>\n\t\t\t<th>Importo</th>\n\t\t\t<th>% aggio</th>\n\t\t\t<th>% iva su aggio</th>";
+    menuLateral.innerHTML = "\n\t\t\t<div class='form-group col-12 col-md-6 col-lg-3' >\n\t\t\t  <label for='capitolo'>Capitolo</label>\n\t\t\t  <input name='capitolo' class=\"form-control\" id=\"buscarPorCapitulo\" "+
+	" type=\"number\" placeholder=\"Cerca per Capitolo\">\n\t\t\t</div>\n\t\t\t<div class='form-group col-12 col-md-6 col-lg-3' >\n\t\t\t  <label for='buscarPorDescripcion'>Descrizione</label>\n\t\t\t "+
+	" <input name=\"descrizione\" class=\"form-control\" id=\"buscarPorDescripcion\" type=\"text\" placeholder=\"Cerca per Descrizione\">\n\t\t\t</div>\n\t\t\t<div class='form-group col-12 col-md-6 col-lg-3' >"+
+	"\n\t\t\t  <label for='buscarPorTexto'>Cercare</label>\n\t\t\t  <input name=\"descrizioneTexto\" class=\"form-control\" id=\"buscarPorTexto\" type=\"text\" placeholder=\"Cerca per Testo\">\n\t\t\t</div>"; //inputs de busqueda
+  
 
-  inputCapitulo.onkeyup =function(){
-    filtrarCap(1);
-  }
-  inputDescripcion.onkeyup =function(){
-    filtrarDesc(1);
-  }
-
-  function filtrarCap(col=0){
-    var capitulo = (buscarPorCapitulo.value).toLowerCase().trim();        
-    var filas = document.getElementById("tabla").getElementsByTagName("tbody")[0].rows;
-    
-    for(var i=0; i<filas.length; i++){
-        var textoColumna = (filas[i].cells[col].innerText).toLowerCase();     
-        (textoColumna.indexOf(capitulo) >=0) ? filas[i].className= 'mostrar' : filas[i].className='ocultar';           
-    }
-  }
-
-  function filtrarDesc(){
-    var descripcion = (buscarPorDescripcion.value).toLowerCase().trim();  
-    var filas = document.getElementById("tabla").getElementsByTagName("tbody")[0].rows;
-    
-    for(var i=0; i<filas.length; i++){
-        var textoFila = (filas[i].innerText).toLowerCase();
-        (textoFila.indexOf(descripcion) >= 0) ? filas[i].className= 'mostrar' : filas[i].className='ocultar';             
-    }
-  }
-
+}
 
 });
   
