@@ -1,14 +1,40 @@
 window.addEventListener('load', function(){
 
-  var menuPrevisionaliCapitolo = function menuPrevisionaliCapitolo() {
-    encabezado.innerHTML = "\n\t\t\t<th>Capitolo</th>\n\t\t\t<th>Anno gestione</th>\n\t\t\t<th>Descrizione</th>\n\t\t\t<th>Importo</th>\n\t\t\t<th>% aggio</th>\n\t\t\t<th>% iva su aggio</th>";
-    menuLateral.innerHTML = "\n\t\t\t<div class='form-group col-12 col-md-6 col-lg-3' >\n\t\t\t  <label for='capitolo'>Capitolo</label>\n\t\t\t  <input name='capitolo' class=\"form-control\" id=\"buscarPorCapitulo\" "+
-	" type=\"number\" placeholder=\"Cerca per Capitolo\">\n\t\t\t</div>\n\t\t\t<div class='form-group col-12 col-md-6 col-lg-3' >\n\t\t\t  <label for='buscarPorDescripcion'>Descrizione</label>\n\t\t\t "+
-	" <input name=\"descrizione\" class=\"form-control\" id=\"buscarPorDescripcion\" type=\"text\" placeholder=\"Cerca per Descrizione\">\n\t\t\t</div>\n\t\t\t<div class='form-group col-12 col-md-6 col-lg-3' >"+
-	"\n\t\t\t  <label for='buscarPorTexto'>Cercare</label>\n\t\t\t  <input name=\"descrizioneTexto\" class=\"form-control\" id=\"buscarPorTexto\" type=\"text\" placeholder=\"Cerca per Testo\">\n\t\t\t</div>"; //inputs de busqueda
-  
+  var favorites = JSON.parse(localStorage.getItem('favorites'))
+  if(favorites==null) favorites=[]
+  else{
+    favorites.forEach((element,i) => {
+      $('#card').append(element)
+    });
+  }
 
-}
+  var display = $('#storage').attr('class');
+
+  if(!localStorage.getItem('display')){
+    localStorage.setItem('display', display)
+  }
+
+  console.log(display);
+
+  $('#storage').click(function storage() {
+    $('#storage2').attr('class', 'mostrar')
+    $('#storage').attr('class', 'ocultar')
+      favorites.push('<p id=""><a href="www.google.com">aqui</a> <a href="#" id=""><i class="fas fa-trash-alt"></i></a><p>')
+      localStorage.setItem('favorites', JSON.stringify(favorites))
+      localStorage.removeItem('display')
+      display=$('#storage').attr('class')
+      localStorage.setItem('display', display)
+    }
+  )
+
+  $('#storage2').click(function storage() {
+    $('#storage').attr('class', 'mostrar')
+    $('#storage2').attr('class', 'ocultar')
+      favorites.push('<p id=""><a href="www.google.com">aqui</a><p>')
+      localStorage.setItem('favorites', JSON.stringify(favorites) )
+    }
+  )
+
 
 });
   

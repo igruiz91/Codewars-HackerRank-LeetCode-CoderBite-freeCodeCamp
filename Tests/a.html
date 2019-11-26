@@ -6,74 +6,53 @@
     <meta charset=''>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <script src="https://kit.fontawesome.com/3ca28a3bb2.js" crossorigin="anonymous"></script>
+
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="a.js"></script>
   </head>
   <body>
+  
+    <div class="container">
+      <nav aria-label="breadcrumb border-dark">
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="./cammindex.sto">Cruscotto</a></li>
+        <li class="breadcrumb-item"><a href="./cammintr.sto">Tributari</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Riscossioni</li>
+        </ol>
+      </nav>
+
+      <p class='text-right'><a href="#" id="storage" class="mostrar">Aggiungi ai preferiti</a></p>
+      <p class='text-right'><a href='#' id="storage2" class="ocultar"><i class='icon-minus'></i> Rimuovi dai preferiti</a></p>
+
+
+      <p class="h3">RISCOSSIONE: Ordinaria - Coattiva; Ingiunzioni - Procedure</p>
+      <p>Vi dati della contabilizzazione delle entrate gestite dal Modulo Riscossioni in Capitolo e Accertamento contabile Configurati nel Programma Contabilizzazione.</p>
+      <form name="Form0" action="" method="post" enctype="multipart/form-data">
+      <div>
+        <div>
+          <input type="hidden" name="AREA" value="@AREA" />
+          <input type="hidden" name="SELTipoTributo" value="@SELTipoTributo" />
+          <input type="hidden" name="DB_CAMM" value="@DB_CAMM" />
+          <input type="hidden" name="StwEvent" value="@StwEvent">
+        </div>
+      </div>
+
+      <div class="col-6 col-sm-6 col-md-12 scroll-card">
+        <div class="card my-3">
+        <div class="card-header"><i class="fas fa-heart"></i> Preferiti</div>
+        <div class="card-body" id="card">
+          <p class="card-text"></p>
+        </div>
+        </div><!-- card -->	  
+      </div>
+    </div>
     
-    <div class="row">
 
-      <!-- Grid column -->
-
-      <ul class="nav flex-center flex-wrap mx-0 p-top-5 p-bottom-4 wow fadeInUp">
-
-        <li class="nav-item"><button type="button" class="nav-link color-texto-boton filter active" id="btn_modal" data-rel="all">Todos</button></li>
-
-        <li class="nav-item"><button type="button" class="color-texto-boton filter" data-rel="1">Reforma de Viviendas</button></li>
-
-        <li class="nav-item"><button type="button" class="color-texto-boton filter" data-rel="2">Sistemas de Iluminación y Led</button></li>
-
-        <li class="nav-item active">
-          <button type="button" class="color-texto-boton filter" data-rel="3">Instalaciones Calefaccion | AAC y Fontanería</button>
-        </li>
-
-        <li class="nav-item"><button type="button" class="color-texto-boton filter" data-rel="4">Sistemas de Control y Vigilancia</button></li>
-
-        <li class="nav-item"><button type="button" class="color-texto-boton filter" data-rel="5">Reformas Industriales</button></li>
-
-        <li class="nav-item"><button type="button" class="color-texto-boton filter" data-rel="6">Energía Solar y Fotovoltaica</button></li>
-
-        <li class="nav-item"><button type="button" class="color-texto-boton filter" data-rel="7">Instalaciones Eléctricas e Industriales</button></li>
-      </ul>
-    </div>
-    <!-- Grid row -->
-
-    <div class="gallery" id="gallery">
-
-      <div class="view overlay zoom z-depth-2 mb-3 pics all 1 animation">
-        <a href="img/jpg/proyectos/reformas/reformas-1.jpg" data-lightbox="[reformas]" title="Reformas Integrales de Vivienda"><img class="img-fluid z-depth-1 rounded" src="img/jpg/proyectos/reformas/reformas-1.jpg" alt="Reformas Integrales de Vivienda"></a>
-      </div>
-      <div class="view overlay zoom z-depth-2 mb-3 pics all 1 animation">
-        <a href="img/jpg/proyectos/reformas/reformas-2.jpg" data-lightbox="[reformas]" title="Reformas Integrales de Vivienda"><img class="img-fluid z-depth-1 rounded" src="img/jpg/proyectos/reformas/reformas-2.jpg" alt="Reformas Integrales de Vivienda"></a>
-      </div>
-      <div class="view overlay zoom z-depth-2 mb-3 pics all 2 animation">
-        <a href="img/jpg/proyectos/alumbrado/alumbrado-14.jpg" data-lightbox="[alumbrado]" title="Sistemas de Iluminación y Led"><img class="img-fluid z-depth-1 rounded" src="img/jpg/proyectos/alumbrado/alumbrado-14.jpg" alt="Sistemas de Iluminación y Led"></a>
-      </div>
-    </div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
