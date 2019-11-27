@@ -48,14 +48,10 @@ function isPrime(numero)
     }
     return true;
 }
-let primes=[]
-for(let i=2; i<10000; i++){
-    if(isPrime(i))
-    primes.push(i)
-}
-console.log(primes);
 
-console.log(isPrime(3));
+let a=2;
+
+console.log(isPrime(30097));
 console.log(isPrime(73));
 console.log(isPrime(24));
 console.log(isPrime(5099));
