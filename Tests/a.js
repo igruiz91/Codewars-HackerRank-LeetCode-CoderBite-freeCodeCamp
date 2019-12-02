@@ -1,5 +1,7 @@
 window.addEventListener('load', function(){
 
+  console.log(this.navigator.userAgent);
+
   var favorites = JSON.parse(localStorage.getItem('favorites'))
   if(favorites==null) favorites=[]
   else{

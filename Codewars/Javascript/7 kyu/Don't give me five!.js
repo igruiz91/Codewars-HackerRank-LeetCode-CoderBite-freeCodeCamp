@@ -13,6 +13,27 @@ function haveFive(n) {
     return have
 }
 
+const dontFiveNew = (s,e) => {
+    let resp = []
+    for(let i=s; i<=e; i++){
+        if(have(i)) continue;
+        else resp.push(i)
+    }
+    return resp.length
+}
+const have = n => {
+    (n<0) ? n= `${n}`.split('').filter(Number) : n= `${n}`.split('')
+    return n.includes('5')
+}
+
+const dontGiveMeFiveUp = (s,e)=>{
+    for(var count=0; s<=e; s++)
+        (s+"").includes('5') || count++
+    return count
+}
+
+//console.log(have(-15));
+
 //console.log(haveFive(12346));
 
-console.log(dontFive(44, 58));
+console.log(dontGiveMeFiveUp(4, 17));
