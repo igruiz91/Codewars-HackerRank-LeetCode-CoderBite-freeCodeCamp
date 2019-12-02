@@ -8,9 +8,19 @@ function dataReverse(data) {
         nums.push(a[num])
     }
     nums.map(a => a.split('').map(n => resp.push(+n)))
-    return resp
+    return resp;
 }
 
 const data1 = [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0]
 
-console.log(dataReverse(data1));
+
+function dataReverseNew(data) {
+    if (data.length == 0) return [];
+    let bites = [];
+    const tam = data.length / 8;
+    for (let i = 0; i < tam; i++)
+        bites.push(data.splice(0, 8))
+    return bites.reverse().join().split(',').map(n => n * 1)
+}
+
+console.log(dataReverseNew(data1));
