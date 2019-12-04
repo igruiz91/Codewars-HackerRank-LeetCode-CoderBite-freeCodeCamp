@@ -10,6 +10,14 @@ function IManejar() {
     };
 }
 
+Function.prototype.implement = function() {
+    for(var i = 0; i < arguments.length; i++) {
+       // .. Check member's logic ..
+    }
+    return this;
+}
+
+
 class Vehiculo {
 
     constructor(modelo, precio) {
@@ -55,4 +63,8 @@ class Automovil extends Vehiculo {
     }
 
 }
+let a = 1;
+let b='hi';
+console.log(a+b);
+
 

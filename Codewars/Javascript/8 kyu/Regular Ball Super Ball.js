@@ -1,5 +1,10 @@
 var Ball = function(ballType='regular') {
-    return this.ballType
+    this.ballType = ballType
 };
 
-console.log(Ball('super'));
+class Ball {
+    constructor(ballType = 'regular'){
+        this.ballType = ballType;
+    }
+}
+
