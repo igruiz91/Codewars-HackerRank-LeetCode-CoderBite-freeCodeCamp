@@ -21,7 +21,7 @@ function multTriangle(n) {
 }
 
 function multTriangleUp(n) {
-    const totalSum = (n*(n+1)/2)**2, oddSum = Math.ceil(n/2)**4
+    const totalSum = (n*(n+1)/2)**2, oddSum = Math.ceil(n/2)**4;
     return [totalSum, totalSum-oddSum, oddSum]
 }
 
