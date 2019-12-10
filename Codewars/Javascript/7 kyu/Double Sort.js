@@ -3,9 +3,13 @@ function dbSort(arr){
     return nums.concat(str)
 }
 
-const _ = require('lodash')
-const dbSortUp = arr => _.sortBy(arr, _.isString, _.identity);
+//const _ = require('lodash')
+//const dbSortUp = arr => _.sortBy(arr, _.isString, _.identity);
 
 
-const dbSortUp2 = arr => arr.sort((a,b) =>!b.big-!a.big || b<a || -1)
-console.log(dbSortUp2(["Banana", "Orange", "Apple", "Mango", 0, 2, 2, 45]));
+dbSortUp2=Q=>Q.sort((Q,S)=>!S.big()-!Q.big()||S<Q||-1)
+
+
+
+
+console.log(dbSortUp2(["Banana", "Orange", "banana", "Apple", "Mango", 0, 2, 2, 45]));
