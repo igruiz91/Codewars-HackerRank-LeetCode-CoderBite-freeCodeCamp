@@ -4,7 +4,7 @@ def add(a,b):
         'multiply': a*b,
         'divide': a/b,
         'mod': a%b,
-        'exponent': , 
+        'exponent': 1, 
         'subt':a-b,
     }
     return switchet.get

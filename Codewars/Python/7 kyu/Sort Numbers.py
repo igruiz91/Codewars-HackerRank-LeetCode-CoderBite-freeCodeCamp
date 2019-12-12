@@ -9,4 +9,5 @@ def solutionUp2(nums):
     return sorted(nums or [])
 
 resp = solution(None)
+
 print(resp)
