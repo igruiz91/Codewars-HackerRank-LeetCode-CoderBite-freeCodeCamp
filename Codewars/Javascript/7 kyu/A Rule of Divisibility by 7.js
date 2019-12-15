@@ -13,6 +13,7 @@ function seven(m) {
     return [m, count]
 }
 
+
 function sevenUp(n) {
     let count = 0;
     while (n.toString().length > 2) {

@@ -18,5 +18,23 @@ function findSub(s, a, b, c) {
     return resp
 }
 
+
+const findSubNew = (s, a, b, c) => {
+    const exp = `${a}[^${a}|${b}]+?${b}`
+    let reg = new RegExp(exp, 'g')
+    let subs = s.match(reg)
+    resp = '', max = 0;
+    for (let i = 0; i < subs.length; i++) {
+        if (contadorC(subs[i], c) > max) resp = subs[i]
+    }
+    return resp
+}
+const contadorC = (str, c) => {
+    let contador = 0
+    for (let i = 0; i < str.length; i++)
+        if (str[i] == c) contador++
+    return contador;
+}
+
 var s = 'abacbaccbbccca';
-console.log(findSub(s, 'a', 'b', 'c'));
+console.log(findSubNew(s, 'a', 'b', 'c'));
