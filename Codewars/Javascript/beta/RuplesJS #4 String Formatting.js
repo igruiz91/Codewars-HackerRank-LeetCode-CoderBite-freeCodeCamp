@@ -1,0 +1,3 @@
+String.prototype.sprintf(){
+    
+}

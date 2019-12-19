@@ -1,6 +1,3 @@
-
-
-
 def merge_arrays_n(first, second):
     return sorted(set(first+second))
 

@@ -9,4 +9,12 @@ var orderedCount = function (text) {
     }
     return arr
 }
-console.log(orderedCount('1022312'));
+
+var orderedCountNew = text =>{
+    let resp ={}, arr=;
+    text.split('').map(c => resp[c] ? resp[c]++ : resp[c]=1)
+    for(let [key, val] of Object.entries(resp))
+        arr.push(key, val)
+    return arr 
+}
+console.log(orderedCountNew('abracadabra'));

@@ -7,5 +7,6 @@ function unusualFiveUp() {
     return 'aaaaa'.length
 }
 
+
 console.log(unusualFiveUp.toString);
 console.log(unusualFiveUp());
