@@ -1,7 +1,7 @@
 function thirt(n) {
     n = `${n}`.split('').reverse().map(n => +n)
     let resp=0;
-    while(){
+    while(resp=true){
         resp= n[0]*1+[]
     }
     return n

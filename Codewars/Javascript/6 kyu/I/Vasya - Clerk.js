@@ -18,7 +18,6 @@ function tickets(peopleInLine) {
                 return "NO"
             } else {
                 if (caja.filter(n => n == 50).length > 0 && caja.filter(n == 25).length > 0) {
-                    for (let k = 0; )
         }
             }
 
