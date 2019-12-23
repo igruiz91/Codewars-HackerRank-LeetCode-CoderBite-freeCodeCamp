@@ -1,5 +1,5 @@
 function balancedNum(number){
-    
+    if(number<100) return "Balanced"
     let left =[], right=[];
     number= ''+number;
     if(number.length % 2){
@@ -9,8 +9,9 @@ function balancedNum(number){
         left = number.slice(0,number.length/2-1).split('').map(Number)
         right = number.slice(number.length/2+1).split('').map(Number)
     }
-    return right.length==0 ? "Balanced" : right.reduce((a,b)=>a+b) === left.length==0 ? "Balanced" : left.reduce((a,b)=>a+b,0) ? "Balanced" : "Not Balanced"
+    return right.reduce((a,b)=>a+b) === left.reduce((a,b)=>a+b,0) ? "Balanced" : "Not Balanced"
 }
+
 
 
 
