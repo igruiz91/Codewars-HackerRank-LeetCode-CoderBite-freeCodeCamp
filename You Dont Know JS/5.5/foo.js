@@ -1,9 +1,11 @@
-import hello from "bar";
+import hello from "../5.5/bar";
 
 var hungry = "hippo";
 
-function awwsome() {
-    console.log(hello(hungry).toUpperCase());
+function awesome() {
+    console.log(
+        hello( hungry ).toUpperCase()
+    );
 }
 
-export awwsome;
+export default awesome;
