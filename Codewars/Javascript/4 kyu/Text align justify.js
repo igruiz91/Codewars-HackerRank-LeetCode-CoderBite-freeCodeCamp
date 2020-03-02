@@ -9,9 +9,11 @@ var justify = function(str, len) {
             cont=w.length+2
             resp+='\n'+w+ " "
         }
+        
     })
     return resp.split('\n').map(str => espaceado(str,len)).join('\n')
 }
+
 
 const espaceado = (str, len) =>{
     let strLen = str.length-1;

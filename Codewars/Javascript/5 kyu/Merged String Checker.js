@@ -11,7 +11,32 @@ function isMerge(s, part1, part2) {
     return (s== part1+part2 || s== resp)
 }
 
-console.log(isMerge('codewars', 'cdw', 'oears'));
+const isMergeNew = (s, part1, part2) =>{
+    let count=1
+    let word =""
+    part1= part1.split('')
+    part2= part2.split('')
+    while(part1.length || part2.length){
+        let sPart= [...s].slice(0,count).join('')
+        if(word+part1[0]==sPart){
+            word+=part1.shift()
+            count++
+        }
+        else if(word+part2[0]==sPart){
+            word+=part2.shift()
+            count++
+        }
+        
+        else return false
+    }
+    return s==word
+}
+
+
+
+
+
+console.log(isMergeNew('Bananas from Bahamas', 'Bahas', 'Bananas from am'));
 
 // let a = 'aa'.split('');
 // let b=[];
