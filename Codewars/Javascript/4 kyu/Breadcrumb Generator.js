@@ -61,16 +61,53 @@ function clearURL(str) {
 }
 
 //console.log(clearURL("www.agcpartners.co.uk"));
-
 //console.log(clearStrings('https://getbootstrap.com/docs/4.3/layout/grid/')); 
 // console.log(clearLastPosition('index.php'));
 // console.log(clearLastPosition('home.html'));
 // console.log(clearLastPosition('home?direction.asp'));
-
 // console.log(shortenStr('very-long-site_name-to-make-a-silly-yet'));
 
-console.log(generateBC("https://getbootstrap.com/docs/4.3/layout/grid/", " : "));
+//console.log(generateBC("https://getbootstrap.com/docs/4.3/layout/grid/", " : "));
+
+function generateBCNew(url, separator){
+    let resp =[]
+    let presets ={
+        home: '<a href="/">HOME</a>',
+        homeSpan: '<span class="active">HOME</span>',
+    }
+    const clean = str=> {
+        let dominios= ['https://', 'http://', '.html', '.htm', '.php', '.asp']
+        dominios.map(reg => str = str.replace(new RegExp(reg, 'g'), ''))
+        return str
+    }
+    const format = str => str.toUpperCase()
+    const shorten = str =>{
+        let reserved = ["the","of","in","from","by","with","and", "or", "for", "to", "at", "a"]
+        reserved.map(w => {
+            let reg = new RegExp(w,'g')
+            while(reg.test(str)) str = str.replace(reg, '').trim()
+        })
+        short = str.split(' ').map(w=> w[0]).join('')
+        return format(short)
+    }
+            
+    let breads = clean(url).split('/');
+    let cascade='/';
+    for(let i=1; i<breads.length; i++){
+        let desc = breads[i].replace(/-/g, ' ')
+        cascade+=desc+"/"
+        if(breads[i].length>30) {
+            resp.push(`<a href="/${cascade}/">${shorten(desc)}</a>`)
+        }
+        else{
+            resp.push(`<a href="/${cascade}/">${format(desc)}</a>`)
+        }
+    }
+    return resp
+}
 
 
 
+console.log(generateBCNew("www.very-long-site_name-to-make-a-silly-yet-meaningful-example.com/users/giacomo-sorbi", " + "));
 
+//console.log(generateBCNew("https://getbootstrap.com/docs/4.3/layout/grid/", " : "));
