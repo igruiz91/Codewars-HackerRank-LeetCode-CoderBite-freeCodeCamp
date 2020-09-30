@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+function reversedPig(str) {
+    while (/^[^aeiou]/i.test(str)) {
+        str.split
+    }
+}
+
+console.log(reversedPig("Elcomeway"));
+=======
 const firstLetter = str => str.slice(0,1)
 
 function reversedPig(str){
@@ -31,3 +40,4 @@ function reversedPigTrue(str){
 }
 
 console.log(reversedPigTrue('Orrysay'));
+>>>>>>> d4032ec81459f9b8a6dd31aac9e65034e91228b3
