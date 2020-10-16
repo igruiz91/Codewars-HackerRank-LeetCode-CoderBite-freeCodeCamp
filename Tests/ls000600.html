@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset class="generica" id='idRicDom'>
+        <legend>
+            <a href="javascript:ResetFieldset('idRicDom',0);" title='Reset'>
+                link
+            </a>
+        </legend>
+        <div class="campi">
+
+
+            <br>
+            <div class="campo">
+                <label>N. Domanda</label>
+                <div>
+                    <input type='text' name='NumeroDomandaSel' size=8 maxlength=8 value="@NumeroDomandaSel"
+                        onChange="isNumber(this,0,99999999)">
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Da N. Domanda</label>
+                <div>
+                    <input type='text' name='DaNumeroDomanda' size=10 maxlength=10 value="@DaNumeroDomanda"
+                        onChange='isNumber(this,0,99999999);'>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>A N. Domanda</label>
+                <div>
+                    <input type='text' name='ANumeroDomanda' size=10 maxlength=10 value="@ANumeroDomanda"
+                        onChange='isNumber(this,0,99999999);'>
+                </div>
+            </div>
+
+
+            <div class="campo">
+                <label>Da Data Domanda</label>
+                <div>
+                    <input type='text' name='DaDataDomanda' size=10 maxlength=10 value="@DaDataDomanda"
+                        onChange='isDate(this);'>
+                    <div class="bottone_affiancato">
+                        <a href='javascript:Doc.calendar("DaDataDomanda")'><img src='@IMAGES/calendar.gif' border=0></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>A Data Domanda</label>
+                <div>
+                    <input type='text' name='ADataDomanda' size=10 maxlength=10 value="@ADataDomanda"
+                        onChange='isDate(this);'>
+                    <div class="bottone_affiancato">
+                        <a href='javascript:Doc.calendar("ADataDomanda")'><img src='@IMAGES/calendar.gif' border=0></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Stato Controllo</label>
+                <div>
+                    <?
+    				"ControllataSel" @ControllataSel "Tutte|T|Controllate|S|Non Controllate|N" $make_select
+    				?>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>@EtichettaEsitoControllo</label>
+                <div>
+                    <?
+    				"EsitoControlloSel" @EsitoControlloSel "Tutte|T|Ammesse|P|Non Ammesse|N" $make_select
+    				?>
+                </div>
+            </div>
+
+
+
+
+            <br>
+            <div class="campo">
+                <label>Testo contenuto nei campi liberi</label>
+                <div>
+                    <input type='text' name='TestoContenutoRic' size=100 maxlength=255 value="@TestoContenutoRic">
+                </div>
+            </div>
+
+            <br>
+            <fieldset class='GruppoRadioCheck'>
+                <legend title='Scegliere ordinamento'>Ordinamento</legend>
+
+                <div class="campo">
+                    <div>
+                        <input type="radio" name="Ordinamento" value='N' <? @Ordinamento "N" leq [[ " checked" vom ]] ?>
+                        >
+                    </div>
+                    <label>Data di Nascita</label>
+                </div>
+                <div class="campo">
+                    <div>
+                        <input type="radio" name="Ordinamento" value='U' <? @Ordinamento "U" leq [[ " checked" vom ]] ?>
+                        >
+                    </div>
+                    <label>Numero Domanda</label>
+                </div>
+                <div class="campo">
+                    <div>
+                        <input type="radio" name="Ordinamento" value='D' <? @Ordinamento "D" leq [[ " checked" vom ]] ?>
+                        >
+                    </div>
+                    <label>Data Domanda</label>
+                </div>
+
+
+            </fieldset>
+
+        </div> <!--  campi  -->
+        <?
+    	!Filtro
+    	9723crx
+    	"select * from docfisi "
+    	"where TipoDocumento='GRADUA_XML' " blk
+    	"and Proprieta='@CodiceGraduatoriaSel' " blk
+    	"order by NumeroDocumento desc" blk
+    	$Sql_select
+    	[[
+    	
+        ]]
+        ?>
+        <div class='vuoto'>&nbsp</div>
+        <div class='bottoni'>
+            <a class='pulsante' href='javascript:MainSubmit(723);' title='Torna alla gestione graduatorie'>Torna</a>
+            <a class='pulsante' href='javascript:MainSubmit(724);' title='Visione domande graduatoria'>Visualizza</a>
+            <?
+    @Solo_Visione_Gradua "S" leq cb_no_insert
+    @ABINS bcn 1 leq
+    @Contesto "BD" lne lla
+    @Contesto "CS" lne lla
+    [[
+    ?>
+            <a class='pulsante' href='javascript:MainSubmit(725);'
+                title='Inserisci nuova domanda graduatoria'>Inserisci</a>
+            <?
+    ]]
+    cl_no_insert
+    ?>
+            <a class='pulsante' href="javascript:ExportXml(@IdGraduatoria,'S');" title='Export dati su file xls'>Export
+                xls</a>
+            <a class='pulsante' href="javascript:ExportXml(@IdGraduatoria,'T');"
+                title='Export dati su file xls su più fogli'>Export xls (+)</a>
+            <a class='pulsante' href="javascript:ExportXml(@IdGraduatoria,'');" title='Export dati su file xml'>Export
+                xml</a>
+        </div>
+    </fieldset> <!-- Fielset idRicDom -->
+
+
+    <?
+    @StwEvent "706" leq
+    @StwEvent "720" leq llo cb_fine
+    
+    @Contesto "SS" leq
+    @TMP9720_comune_pdz bcn 0 lgt lla
+    [[
+    	!Prendo il Comune
+    	"TMP9720_comune_pdzDesc"
+    	"TMP9720_comune_pdz"
+    	$Get_Comune
+    ]]
+    
+    @ViewNumber "" leq
+    [[
+    	40 =@step
+    	@step =@ViewNumber 
+    ||
+    	@ViewNumber =@step
+    ]]
+    			
+    @StwEvent "724" leq
+    [[
+    	1 =@Pagina
+    	0 =@Inizio
+    ]]
+    9721crx	
+    
+    @FILTROATTIVO "" leq
+    [[
+    	"select count( distinct gr_domande.progressivo) as numero " @Query9721  blk
+    	$sql_select_row [[ @numero =@ViewNumberMax  ]]
+    ||
+    	"select distinct gr_domande.* "
+    	@Query9721 blk
+    	$sql_select =@numero 
+    	@numero =@ViewNumberMax  
+    ]]
+    
+    "select distinct gr_domande.* "
+    @Query9721 blk
+    " limit " blk @Inizio bcn blk " ," blk @step bcn blk
+    !ckw "<br>" blk vom
+    $Sql_select 0 leq 
+    [[
+    	@Inizio bcn 0 lgt
+    	[[
+    		"<h2>LA LISTA DELLE DOMANDE " 
+    		506crx blk 
+    		" E' TERMINATA</h2>" blk vom	
+    	||
+    		"<h2>NON ESISTE NESSUNA DOMANDA PER " 
+    		506crx blk 
+    		"</h2>" blk vom
+    	]]
+    	1cb_fine
+    ]]
+    
+    @ABVAR "1" leq
+    @GraduatoriaCalcolata "" leq lla
+    [[
+    	?>
+    <br>
+    <div class='bottoni'>
+        <a class='pulsante' href='javascript:ConfermaMultipla();' title='Conferma i dati selezionati'>Conferma</a>
+        <a class='pulsante'
+            href="javascript:if(confirm('Si sta per cancellare la conferma degli elementi selezionati. Continuare?')) MainSubmit(795);"
+            title='Non confermare i dati selezionati'>Non Conferm.</a>
+    </div>
+    <?
+    ]]
+    
+    !--------PAGINAZIONE----------------------------------------------
+    @Pagina bcn 0 leq [[ 1 =@Pagina ]]
+    @step bcn @Inizio bcn + =@InizioPro
+    @Inizio bcn @step bcn - =@InizioPre
+    @Pagina bcn 1 + =@PaginaPro
+    @Pagina bcn 1 - =@PaginaPre
+    
+    !Disegno controlli paginazione (macro definita in urbiw3c)
+    "ViewNumber" 
+    "MaxRecord(this,734);"
+    "ViewNumberCorrente"
+    "ViewNumberMax"
+    "Pagina"
+    "NumeroPagina(this,734);"
+    "NumRecordMax"
+    "Doc.setFld(0,'Pagina',1);NumeroPagina(document.getElementsByName('Pagina')[0],734);"
+    "MainSubmit(110,'@InizioPre','@PaginaPre');"
+    "MainSubmit(111,'@InizioPro','@PaginaPro');"
+    "Doc.setFld(0,'Pagina',@NumRecordMax);NumeroPagina(document.getElementsByName('Pagina')[0],734);"
+    $TBL_RIGHEPERPAGINA
+    
+    "<div class='vuoto'></div>" 
+        @Contesto "SS" leq
+        @TMP9720_comune_pdz bcn 0 lgt lla
+        [[
+            "<div class='titolotable'>COMUNE DI " blk
+            @TMP9720_comune_pdzDesc blk
+            "</div>" blk
+        ]]
+    "<div class='tbl_generica_100x100'>" blk
+    "<table id='t1'>" blk
+    "<thead>" blk
+    "<tr>" blk vom
+    "<input type='checkbox' name='' value='' onclick='SelezTT(this.checked)'>" $make_TH vom
+    @TipoGraduatoria "U" leq
+    @GraduatoriaCalcolata "S" leq lla
+    [[
+    	"Pos." $make_TH vom
+    ]]
+    @EtichettaRichiedente $make_TH vom
+    @EtichettaDomanda $make_TH vom
+    @TipoGraduatoria "S" leq
+    [[
+    	"Struttura" $make_TH vom
+    ]]
+    @GraduatoriaCalcolata "" leq 
+    [[
+    	@EtichettaControllata $make_TH vom
+    	@EtichettaEsitoControllo $make_TH vom
+    	"Punteggio" $make_TH vom
+    ||
+    	@EtichettaEsitoControllo $make_TH vom
+    	@TipoGraduatoria "U" leq
+    	[[
+    		"Priorit&agrave;" $make_TH vom
+    		"Punteggio" $make_TH vom
+    		@Gra_ScopoGraduatoria "B" leq
+    		[[
+    			"Contributo<br>Richiesto" $make_TH vom
+    		]]
+    		"Esito<br>Finale" $make_TH vom
+    		@SceltaStruttura "S" leq
+    		[[
+    			"Struttura Assegnata" $make_TH vom
+    		]]
+    		@Gra_ScopoGraduatoria "B" leq
+    		@NominaCalcolata "S" leq lla
+    		[[
+    			"Contributo<br>Assegnato" $make_TH vom
+    		]]
+    	||
+    		"Risultati" $make_TH vom
+    	]]
+    ]]
+    "Funzioni" $make_TH vom
+    "</tr>" vom
+    "</thead>" vom
+    					
+    "<tbody>" vom					
+    $Sql_numrows =@record   !calcolo numero di righe per ogni select
+    1 $Sql_numrows 1 			
+    ((					
+    	cfv $Sql_getrow	
+    	$Sql_currset =@Set9700
+    	$Sql_nextset ckd
+    
+    	!Riprende i dati della domanda
+    	"POCHI" =@RIPRENDI_DATI
+    	"HTM" =@TIPOREPORT
+    	5000crx
+    
+    	@TipoGraduatoria "S" leq
+    	@GraduatoriaCalcolata "S" leq lla
+    	[[
+    		!Risultati
+    		"HTM" =@TIPOREPORT
+    		9724crx
+    	]]
+    
+    	cfv 2 amd [[ "rigadispari" || "rigapari" ]] =@classeriga
+    	"<tr class='@classeriga'>" vom
+    	"<td align='center' valign='middle'>" vom
+    	"<input type='checkbox' class='ListaDomande' name='Domanda" cfv blk "' value='@Progressivo'>" blk vom
+    	"</td>" vom
+    	@TipoGraduatoria "U" leq
+    	@GraduatoriaCalcolata "S" leq lla
+    	[[
+    		@Posizione "&#176" blk $make_B $make_TD vom
+    	]]
+    
+    	@Anagrafica
+    	"<br>" blk
+    	@Nato blk
+    	"<br>" blk
+    	"a " blk @Nascita blk $make_TD vom
+    
+    	"N. " @NumeroDomanda @Ordinamento "U" leq [[ $make_B ]] blk
+    	" del " blk @DataDomanda @Ordinamento "D" leq [[ $make_B ]] blk
+    	"<br><b>Inserita da " blk @UtenteInserimento blk "</b>" blk
+    	$make_TD vom
+    	@TipoGraduatoria "S" leq
+    	[[
+    		9728crx
+    		@ListaStrutture $make_TD vom
+    	]]
+    
+    	@GraduatoriaCalcolata "" leq 
+    	[[
+    		@StatoControllata $make_TD vom
+    		@EsitoControllo "" leq 
+    		[[
+    
+    			"<span class='qualifica bktrasparente' title=''>&nbsp;</span>"
+    			=@DescStatoEsitoControllo 
+    		]]
+    		@EsitoControllo "P" leq 
+    		[[
+    			"<span class='qualifica bkverde' title='Ammessa'>"
+    			@StatoEsitoControllo blk
+    			"</span>" blk
+    			=@DescStatoEsitoControllo 
+    		]]
+    		@EsitoControllo "N" leq 
+    		[[
+    			"<span class='qualifica_big bkrosso' title='Non Ammessa'>"
+    			@StatoEsitoControllo blk
+    			"</span>" blk
+    			=@DescStatoEsitoControllo 
+    		]]
+    		"class='colonnaqualifiche' " =@STW_TDPROP
+    		@DescStatoEsitoControllo 
+    		@NoteControllo "" lne
+    		[[
+    			"<br>" blk
+    			@NoteControllo blk
+    		]]
+    		$make_TDGEN vom
+    		@PunteggioTot $make_TD vom
+    	||
+    		@EsitoControllo "" leq 
+    		[[
+    
+    			"<span class='qualifica bktrasparente' title=''>&nbsp;</span>"
+    			=@DescStatoEsitoControllo 
+    		]]
+    		@EsitoControllo "P" leq 
+    		[[
+    			"<span class='qualifica bkverde' title='Ammessa'>"
+    			@StatoEsitoControllo blk
+    			"</span>" blk
+    			=@DescStatoEsitoControllo 
+    		]]
+    		@EsitoControllo "N" leq 
+    		[[
+    			"<span class='qualifica_big bkrosso' title='Non Ammessa'>"
+    			@StatoEsitoControllo blk
+    			"</span>" blk
+    			=@DescStatoEsitoControllo 
+    		]]
+    		"class='colonnaqualifiche' " =@STW_TDPROP
+    		@DescStatoEsitoControllo 
+    		@NoteControllo "" lne
+    		[[
+    			"<br>" blk
+    			@NoteControllo blk
+    		]]
+    		$make_TDGEN vom
+    		@TipoGraduatoria "U" leq
+    		[[
+    			@DescPriorita $make_TD vom
+    			@PunteggioTot $make_TD vom
+    			@Gra_ScopoGraduatoria "B" leq
+    			[[
+    				"valign='top' align='right'" =@STW_TDPROP
+    				@ImportoRichiesto $ImportoVideo 0btr $make_TDGEN vom
+    			]]
+    
+    			"valign='top' align='center'" =@STW_TDPROP
+    			@EsitoFinale "V" leq
+    			[[
+    				@Gra_ScopoGraduatoria "B" leq
+    				@ModalitaCalcolo "S" leq lla
+    				@ImportoAssegnato bcn @ImportoRichiesto bcn llt lla
+    				[[
+    					"<span class='qualifica bkgiallo' title='Assegnato un contributo minore per raggiungimento disponibilità'>"
+    				||
+    					"<span class='qualifica bkverde' title=''>"
+    				]]
+    				@StatoEsitoFinale blk "</span>" blk =@StatoEsitoFinale 
+    			]]
+    			@EsitoFinale "A" leq
+    			[[
+    				"<span class='qualifica bkrosso' title=''>"
+    				@StatoEsitoFinale blk "</span>" blk =@StatoEsitoFinale 
+    			]]
+    			@StatoEsitoFinale $make_TDGEN vom
+    			@SceltaStruttura "S" leq
+    			[[
+    				!Riprende struttura assegnata
+    				9727crx
+    				"valign='top'" =@STW_TDPROP
+    				@StrutturaAssegnata $make_TDGEN vom
+    			]]
+    			@Gra_ScopoGraduatoria "B" leq
+    			@NominaCalcolata "S" leq lla
+    			[[
+    				"valign='top' align='right'" =@STW_TDPROP
+    				@ImportoAssegnato $ImportoVideo 0btr $make_TDGEN vom
+    			]]
+    		||
+    			@Risultati $make_TDGEN vom
+    		]]
+    	]]
+    	"<td nowrap>" vom
+    	
+    	"&nbsp;" 
+    	"<a href=" blk 
+    	$virg blk
+    	"javascript:MainSubmit(923,@Progressivo);"blk
+    	$virg blk
+    	">" blk
+    	"<img src='@IMAGES/zoom.gif' border=0 title=" blk
+    	$virg blk
+    	"Visualizza dati domanda di " blk  
+    	@Anagrafica blk
+    	$virg blk
+    	"></a>" blk vom
+    	@Contesto "SS" leq 
+    	[[
+    		9732crx
+    	]]
+    
+    	@Solo_Visione_Gradua "S" leq cb_nogradua
+    	@Contesto "CS" leq cb_nogradua
+    	@Contesto "BD" leq cb_salto1
+    
+    	@ABANN "1" leq
+    	[[
+    		"&nbsp;" 
+    		"<a href=" blk 
+    		$virg blk
+    		"javascript:MainSubmit(803,@Progressivo);"blk
+    		$virg blk
+    		">" blk
+    		"<img src='@IMAGES/b-ann.gif' border=0 title=" blk
+    		$virg blk
+    		"Annulla la domanda di " blk  
+    		@Anagrafica blk
+    		$virg blk
+    		"></a>" blk vom
+    	]]
+    	@ABVAR bcn 1 leq
+    	@GraduatoriaCalcolata "" leq lla
+    	[[
+    		"&nbsp;" 
+    		"<a href=" blk 
+    		$virg blk
+    		"javascript:MainSubmit(922,@Progressivo);"blk
+    		$virg blk
+    		">" blk
+    		"<img src='@IMAGES/b-var.gif' border=0 title=" blk
+    		$virg blk
+    		"Modifica dati della domanda di " blk  
+    		@Anagrafica blk
+    		$virg blk
+    		"></a>" blk vom
+    	]]
+    	cl_salto1
+    
+    	@ABVAR "1" leq
+    	@GraduatoriaCalcolata "" leq lla
+    	[[
+    		@Controllata "S" leq
+    		[[
+    			"<a href=" 
+    			$virg blk
+    			"javascript:ConfermaDomanda(@Progressivo,'');"blk
+    			$virg blk
+    			">" blk
+    			"<img src='@IMAGES/bsf_g.gif' border=0 title=" blk
+    			$virg blk
+    			"Annulla la conferma della domanda di " blk  
+    			@Anagrafica blk
+    			$virg blk
+    			"></a>" blk vom
+    		||
+    			"<a href=" 
+    			$virg blk
+    			"javascript:ConfermaDomanda(@Progressivo,'S');"blk
+    			$virg blk
+    			">" blk
+    			"<img src='@IMAGES/bsf_v.gif' border=0 title=" blk
+    			$virg blk
+    			"Conferma la domanda di " blk  
+    			@Anagrafica blk
+    			$virg blk
+    			"></a>" blk vom
+    		]]
+    	]]
+    
+    	@ABVAR "1" lne cb_nogradua
+    	@Contesto "BD" leq [[ 1 cb_nogradua ]]
+    
+    	@GraduatoriaCalcolata "S" leq
+    	@Stato "" leq lla
+    	[[
+    		@NominaCalcolata "" leq
+    		[[
+    			"&nbsp;" 
+    			"<a href=" blk 
+    			$virg blk
+    			"javascript:MainSubmit(925,@Progressivo);"blk
+    			$virg blk
+    			">" blk
+    			"<img src='@IMAGES/b-var.gif' border=0 title=" blk
+    			$virg blk
+    			"Modifica dati graduatoria di " blk  
+    			@Anagrafica blk
+    			$virg blk
+    			"></a>" blk vom
+    		||
+    			"&nbsp;" 
+    			"<a href=" blk 
+    			$virg blk
+    			"javascript:MainSubmit(924,@Progressivo);"blk
+    			$virg blk
+    			">" blk
+    			"<img src='@IMAGES/b-var_r.gif' border=0 title=" blk
+    			$virg blk
+    			"Modifica assegnazione di " blk  
+    			@Anagrafica blk
+    			$virg blk
+    			"></a>" blk vom
+    		]]
+    	]]
+    	cl_nogradua
+    	"</td>" vom
+    	"</tr>" vom
+    	"Free" sql
+    	"Set|" @Set9700 blk sql
+    ))
+    "</tbody>" vom
+    ?>
+    <tfoot>
+        <tr>
+            <td colspan='11'>&nbsp;</td>
+        </tr>
+    </tfoot>
+    </table>
+    </div>
+    <input type="hidden" name="NumeroDomande" value="@record">
+    <? 
+    "<script> document.Form0.ViewNumberCorrente.value=@record;</script>" vom
+    cl_fine
+    ?>
+    <div class='vuoto'>&nbsp</div>
+    </form>
+</body>
+
+</html>
