@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <select name="MotivoRifiutoConf" class="select__motivo">
+    <option value="" class="select__motivo">-</option>
+    <option value="cas" class="select__motivo">cas</option>
+    <option value="eee" class="select__motivo">eee</option>
+    <option value="pippo" class="select__motivo">pippo</option>
+    <option value="rrrrr" class="select__motivo">rrrrr</option>
+    <option value="s" class="select__motivo">s</option>
+    <option value="test" class="select__motivo">test</option>
+    <option value="zxc" class="select__motivo">zxc</option>
+  </select>
+
+
+  <textarea name="descrizioneNotifica" id="descrizioneNotifica" cols="80" rows="3">
+    Example
+  </textarea>
+
+  <script>
+    function abc() {
+        const select = document.querySelector('.select__motivo')
+        const textArea = document.querySelector('#descrizioneNotifica');
+        select.addEventListener('change', ()=> {
+          let text = select.options[select.selectedIndex].text;
+          textArea.innerHTML = text;
+        })
+      }
+    abc()
+  </script>
+</body>
+</html>
