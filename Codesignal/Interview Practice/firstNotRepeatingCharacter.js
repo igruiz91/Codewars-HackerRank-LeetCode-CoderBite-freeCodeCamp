@@ -18,7 +18,7 @@ const firstNotRepeatingCharacterUp = (str) => {
   for(let i = 0; i<str.length; i++){
     if(hash.str[i] == 1) return str[i]
   }
-  return '_'
+  return '_' 
 };
 
 
