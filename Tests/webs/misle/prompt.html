@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="number" id='edad'>
+  <script>
+    let edad = 0
+    let inp = document.getElementById('edad')
+    inp.addEventListener('change', (e)=> {
+      edad = inp.value;
+      alert('La edad es: ' + edad)
+    })
+  </script>
+</body>
+</html>
