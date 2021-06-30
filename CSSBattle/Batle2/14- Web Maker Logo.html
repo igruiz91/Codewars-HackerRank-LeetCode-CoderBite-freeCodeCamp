@@ -1,0 +1,44 @@
+<div class='r'></div>
+<div class='o'></div>
+<div class='o x y'></div>
+<div class='o y z'></div>
+<style>
+  .o {
+    top: 85px;
+    left: 60px;
+    width: 150px;
+    height: 155px;
+    background: #FF6D00;
+    clip-path: polygon(50% 25px, 0 100%, 100% 100%);
+    transform: rotate(180deg)
+  }
+
+  .r {
+    margin: 77px 0 0 72px;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-top: calc(2*76px*0.866) solid #FD4602;
+    border-bottom: 75px solid transparent;
+    display: inline-block;
+  }
+
+  .x {
+    top: 60px;
+    left: 189px;
+  }
+
+  .y {
+    transform: rotate(0deg)
+  }
+
+  .z {
+    top: 60px;
+    left: 170px;
+    background: #FD4602;
+  }
+
+
+  * {
+    position: fixed;
+    background: #F2F2B6
+  }

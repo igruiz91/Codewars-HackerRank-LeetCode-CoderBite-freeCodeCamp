@@ -1,0 +1,57 @@
+<div id='l' />
+<div id='c' />
+<div id='r' />
+<style>
+  #l,
+  #c,
+  #r {
+    width: 60px;
+    height: 30px;
+    border: 20px solid #D86F45;
+    top: 50%;
+    left: 50%
+  }
+
+  #l,
+  #r {
+    border-radius: 0 0 50px 50px;
+    border-top: 0
+  }
+
+  #l {
+    margin: 0 0 0 -130px
+  }
+
+  #c {
+    margin: -50px 0 0 -50px;
+    border-radius: 50px 50px 0 0;
+    border-bottom: 0
+  }
+
+  #r {
+    margin: 0 0 0 30px
+  }
+
+  #l:before,
+  #r:after {
+    content: "";
+    width: 20px;
+    height: 10px;
+    position: absolute;
+    background: #D86F45;
+    border-radius: 20px 20px 0 0;
+    top: -10px
+  }
+
+  #l:before {
+    left: -20px
+  }
+
+  #r:after {
+    left: 60px
+  }
+
+  * {
+    position: fixed;
+    background: #F5D6B4
+  }
