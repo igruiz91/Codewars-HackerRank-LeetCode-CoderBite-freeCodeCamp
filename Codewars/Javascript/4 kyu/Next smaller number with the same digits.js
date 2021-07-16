@@ -1,12 +1,24 @@
 function nextSmaller(n) {
-    const convertNumber = num => `${num}`.split('').sort().join('')
-    if (n < 10) return -1
-    digits = convertNumber(n)
-    if ([... new Set(digits)].length == 1) return -1
-    do {
-        n--;
-    } while (convertNumber(n) != digits)
-    return n > 10 ? n : -1
+  let arrNum=`${n}`.split('').map(n => Number(n))
+  for(let i = arrNum.length - 2; i>=0;i--){
+    let bigger = -1, index = 0
+    for (let j = i + 1; j < arrNum.length; j++) {
+      if (arrNum[j] < arrNum[i] && arrNum[j] > bigger) {
+        bigger = arrNum[j];
+        index = j;
+      }
+    }
+    if(bigger>=0){
+      let temp = 0
+      temp = arrNum[i]
+      arrNum[i]= bigger
+      arrNum[index]=temp
+      let arrSort = arrNum.slice(i+1).sort((a,b) => b-a)
+      let resp = arrNum.slice(0, i + 1).concat(arrSort)
+      return resp[0] ==  0 ? -1 : Number(resp.join(''));
+    }
+  }
+  return -1
 }
 
 
@@ -24,4 +36,7 @@ const nextSmallerNew = n => {
 //6215484505213
 //621548450523
 
-console.log(nextSmallerNew(1321812));
+//console.log(nextSmaller(21)); //12
+//console.log(nextSmaller(1207));
+console.log(nextSmaller(1027));
+//console.log(nextSmaller(1234567908)); //1234567890
