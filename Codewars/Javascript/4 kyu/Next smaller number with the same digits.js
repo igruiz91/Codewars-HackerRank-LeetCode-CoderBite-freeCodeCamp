@@ -22,15 +22,17 @@ function nextSmaller(n) {
 }
 
 
-const nextSmallerNew = n => {
-    let num = `${n}`.split('')
-    let contador = 0, pos = num.length - 2
-    while (num[num.length - 1] > num[pos]) {
-        contador++
-        pos--
+const nextSmallerUp = n => {
+    let digits = (''+n).split('')
+    for(let i=digits.length-1; i-- >0;){
+      if(digits[i+1]<digits[i]){
+        var tail = digits.slice(i).sort((a,b) => b-a);
+        var head = tail.splice(tail.findIndex(x => x<digits[i]), 1);
+        if(!i && '0' == head[0]) return -1
+        return +digits.slice(0, i).concat(head, tail).join("");
+      }
     }
-    [num[num.length - 1], num[pos]] = [num[pos], num[num.length - 1]]
-    return Number(num.slice(0, pos).concat(num.slice(-(num.length - pos - 1)).sort((a, b) => b - a)).join(''))
+    return -1
 }
 //6215484505231
 //6215484505213
@@ -38,5 +40,6 @@ const nextSmallerNew = n => {
 
 //console.log(nextSmaller(21)); //12
 //console.log(nextSmaller(1207));
-console.log(nextSmaller(1027));
-//console.log(nextSmaller(1234567908)); //1234567890
+//console.log(nextSmaller(1027));
+console.log(nextSmallerUp(1027));
+console.log(nextSmallerUp(1234567908)); //1234567890
