@@ -7,14 +7,23 @@
   <title>Document</title>
 </head>
 <body>
-  <input type="number" id='edad'>
+  <select name="test" id="idtest">
+    <option value="1">a</option>
+    <option value="2">b</option>
+    <option value="3">c</option>
+
+  </select>
+
+
+  <button onclick="changeSet()">click</button>
+
+
   <script>
-    let edad = 0
-    let inp = document.getElementById('edad')
-    inp.addEventListener('change', (e)=> {
-      edad = inp.value;
-      alert('La edad es: ' + edad)
-    })
+
+    function changeSet() {
+      let a = document.getElementById('idtest')
+      a.options.selectedIndex=0
+    }
   </script>
 </body>
 </html>

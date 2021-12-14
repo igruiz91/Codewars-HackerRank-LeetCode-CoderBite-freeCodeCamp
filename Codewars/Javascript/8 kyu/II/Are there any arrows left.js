@@ -1,6 +1,5 @@
 function anyArrows(arrows){
-  // arrow it
-  return arrows.some(({damaged}) => damaged === true ) 
+  return arrows.some(e => e.damaged ? false : true );
 }
 
 
