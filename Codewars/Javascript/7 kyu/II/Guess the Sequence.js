@@ -12,4 +12,5 @@ function sequence(x) {
   resp = resp.reduce((a, b) => a.concat(b));
   return [...new Set(resp)];
 }
+
 console.log(sequence(61))
