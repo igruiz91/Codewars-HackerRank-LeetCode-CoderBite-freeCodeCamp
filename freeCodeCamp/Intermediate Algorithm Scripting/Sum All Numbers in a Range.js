@@ -6,6 +6,11 @@ function sumAll(arr) {
   return sum
 }
 
+function sumAllNew(arr){
+  arr = arr.sort((a, b) => a - b);
+  return (arr[0]+arr[1])*(arr[1]-arr[0]+1)/2
+}
+
 
 const sumAllUp = (arr) => {
   const [min, max] = arr.sort((a,b) => a-b);
@@ -14,5 +19,6 @@ const sumAllUp = (arr) => {
 
 
 
+console.log(sumAllNew([10, 5]))
 console.log(sumAll([1, 4]))
 console.log(sumAllUp([1, 4]))

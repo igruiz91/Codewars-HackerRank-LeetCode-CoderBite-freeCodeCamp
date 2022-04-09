@@ -7,7 +7,7 @@ function diffArray(arr1, arr2) {
 
 const diffArrayUp = (arr1,arr2) => {
   let newArr = arr1.concat(arr2)
-  return newArr.filter((n,i) => newArr.lastIndexOf(n) == i && newArr.indexOf(n)===i)
+  return newArr.filter((n,i) => newArr.lastIndexOf(n) == newArr.indexOf(n))
 };
 
 
