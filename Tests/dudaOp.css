@@ -1,0 +1,13 @@
+.modal-text{
+  animation: dudaop 1s linear infinite;
+}
+
+
+@keyframes dudaOp {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

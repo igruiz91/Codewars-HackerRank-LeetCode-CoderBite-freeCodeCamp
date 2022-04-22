@@ -1,3 +1,52 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding and reset fonts */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 :root {
   --green-light: hsl(123deg, 47%, 74%);
   --green-dark: #2e7f32;
@@ -20,42 +69,56 @@
 }
 
 body {
-  font-family: system-ui;
   display: grid;
+  font-family: system-ui;
   min-height: 100vh;
   place-content: center;
+  overflow: hidden;
 }
 
+.orbit {
+  --size: 12rem;
+  --speed: 60s;
+}
 .orbit .center-image {
-  width: 12rem;
+  width: var(--size);
   position: relative;
-  transform: translate(-2rem, -2rem);
+  z-index: 2;
 }
 .orbit .center-image img {
   position: absolute;
   transition: opacity 500ms;
+  border-radius: 50%;
 }
 .orbit .center-image img:not(:first-child):hover {
   opacity: 0;
 }
 .orbit ul {
+  display: grid;
+  place-items: center;
+  height: var(--size);
+  width: var(--size);
   position: relative;
   list-style: none;
-  --icon-bg:var(--green-light);
-  --text-bg:var(--green-dark);
+  --icon-bg: var(--green-light);
+  --text-bg: var(--green-dark);
   transform-origin: center;
-  animation: orbit 60s linear infinite;
+  animation: orbit var(--speed) linear infinite;
+}
+.orbit ul:hover {
+  animation-play-state: paused;
+  --orbit-play-state: paused;
 }
 .orbit li {
   --icon-bg: pink;
   --text-bg: black;
-  background: var(--icon-bg);
-  color: var(--white-light);
+  display: grid;
   position: absolute;
+  place-items: center;
   width: 8rem;
+  color: var(--white-light);
   aspect-ratio: 1/1;
   border-radius: 50%;
-  overflow: hidden;
   font-weight: 500;
   text-align: center;
   line-height: 1;
@@ -64,19 +127,48 @@ body {
   height: 65%;
   width: 65%;
 }
+.orbit li:hover {
+  --throb-play-state: paused;
+}
+.orbit li:nth-child(1) {
+  --throb-delay: 500ms;
+}
+.orbit li:nth-child(2) {
+  --throb-delay: 1000ms;
+}
+.orbit li:nth-child(3) {
+  --throb-delay: 1500ms;
+}
+.orbit li:nth-child(4) {
+  --throb-delay: 2000ms;
+}
+.orbit li:nth-child(5) {
+  --throb-delay: 2500ms;
+}
+.orbit li:nth-child(6) {
+  --throb-delay: 3000ms;
+}
+.orbit li:nth-child(7) {
+  --throb-delay: 3500ms;
+}
+.orbit li:nth-child(8) {
+  --throb-delay: 4000ms;
+}
 .orbit li > * {
+  display: grid;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  animation: hold-position var(--speed) linear infinite, throb 1s var(--throb-delay) ease-in-out infinite alternate;
+  animation-play-state: var(--orbit-play-state, running), var(--throb-play-state, running);
+}
+.orbit li > div {
+  background-color: var(--icon-bg);
 }
 .orbit li > p {
   background: var(--text-bg);
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
   transition: opacity 500ms;
   opacity: 0;
 }
@@ -126,6 +218,19 @@ body {
 
 @keyframes orbit {
   100% {
-    rotate: 1turn;
+    transform: rotate(1turn);
+  }
+}
+@keyframes hold-position {
+  100% {
+    rotate: -1turn;
+  }
+}
+@keyframes throb {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
   }
 }

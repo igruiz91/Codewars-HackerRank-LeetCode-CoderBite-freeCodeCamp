@@ -1,19 +1,24 @@
 body {
-  font-family: system-ui;
   display: grid;
+  font-family: system-ui;
   min-height: 100vh;
   place-content: center;
+  overflow: hidden;
 }
 
 .orbit {
+  --size: 12rem;
+  --speed: 60s;
+
   .center-image {
-    width: 12rem;
+    width: var(--size);
     position: relative;
-    transform: translate(-2rem, -2rem);
+    z-index: 2;
 
     img {
       position: absolute;
       transition: opacity 500ms;
+      border-radius: 50%;
 
       &:not(:first-child):hover {
         opacity: 0;
@@ -22,25 +27,34 @@ body {
   }
 
   ul {
+    display: grid;
+    place-items: center;
+    height: var(--size);
+    width: var(--size);
     position: relative;
     list-style: none;
-    --icon-bg:var(--green-light);
-    --text-bg:var(--green-dark);
+    --icon-bg: var(--green-light);
+    --text-bg: var(--green-dark);
     transform-origin: center;
-    animation: orbit 60s linear infinite;
+    animation: orbit var(--speed) linear infinite;
+
+    &:hover {
+      animation-play-state: paused;
+      --orbit-play-state: paused;
+    }
   }
 
   li {
     --icon-bg: pink;
     --text-bg: black;
 
-    background: var(--icon-bg);
-    color: var(--white-light);
+    display: grid;
     position: absolute;
+    place-items: center;
     width: 8rem;
+    color: var(--white-light);
     aspect-ratio: 1/1;
     border-radius: 50%;
-    overflow: hidden;
     font-weight: 500;
     text-align: center;
     line-height: 1;
@@ -50,20 +64,33 @@ body {
       width: 65%;
     }
 
-    & > * {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    &:hover {
+      --throb-play-state: paused;
     }
 
-    > p {
-      background: var(--text-bg);
-      margin: 0;
+    @for $i from 1 through 8{
+      &:nth-child(#{$i}) {
+        --throb-delay: #{500ms * $i};      }
+    }
+
+    & > * {
+      display: grid;
+      position: absolute;
+      place-items: center;
       width: 100%;
       height: 100%;
-      display: grid;
-      place-items: center;
+      border-radius: inherit;
+      animation: hold-position var(--speed) linear infinite,
+        throb 1s var(--throb-delay) ease-in-out infinite alternate;
+      animation-play-state: var(--orbit-play-state, running),
+        var(--throb-play-state, running);
+    }
+
+    > div {
+      background-color: var(--icon-bg);
+    }
+    > p {
+      background: var(--text-bg);
       transition: opacity 500ms;
       opacity: 0;
     }
@@ -72,7 +99,7 @@ body {
     }
   }
 
-   li:nth-child(1) {
+  li:nth-child(1) {
     --icon-bg: var(--blue-light);
     --text-bg: var(--blue-dark);
     transform: translate(15rem, 0rem);
@@ -121,6 +148,21 @@ body {
 
 @keyframes orbit {
   100% {
-    rotate: 1turn;
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes hold-position {
+  100% {
+    rotate: -1turn;
+  }
+}
+
+@keyframes throb {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
   }
 }
