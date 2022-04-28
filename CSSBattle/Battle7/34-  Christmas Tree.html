@@ -5,8 +5,6 @@
     .t {
       top: 50px;
       left: 75px;
-      width: 0;
-      height: 0;
       border-left: 125px solid transparent;
       border-right: 125px solid transparent;
       border-bottom: 100px solid #FFEECF
@@ -26,3 +24,26 @@
       position: fixed;
       background: #007065
     }
+/* <div></div>
+<div></div>
+<div></div>
+<style>
+  div {
+    position:absolute;
+    border-bottom: 100px solid #F5C181;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+  }
+  div:first-of-type{
+    transform:translate(-50%, 0);
+    border-bottom-color: #00A79D;
+  }
+  div:last-of-type{
+    transform:translate(-50%, -100%);
+    border-bottom-color: #FFEECF;
+  }
+  *{background:#007065}
+</style> */
