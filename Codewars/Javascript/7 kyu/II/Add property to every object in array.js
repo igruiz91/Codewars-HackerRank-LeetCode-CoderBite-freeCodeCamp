@@ -11,5 +11,6 @@ var questions = [
   },
 ];
 
+questions.map(obj => obj["userAnswer"] = null)
 
 console.log(questions)
