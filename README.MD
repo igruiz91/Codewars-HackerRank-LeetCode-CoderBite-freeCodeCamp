@@ -1,6 +1,6 @@
 # Codewars
 
-![](/Images/rank.png)
+![](https://www.codewars.com/users/igruiz91/badges/large)
 
 # freeCodeCamp
 
