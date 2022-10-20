@@ -1,9 +1,8 @@
 function tankvol(h, d, vt) {
-  const R = d/2;
-  const A = R-h;
-  const ang = Math.acos(A/R)
-  return ang
+  let r = d / 2;
+  let l = vt / (r * r * Math.PI);
+  let a = r * r * Math.acos(1 - h / r) - (r - h) * Math.sqrt(2 * r * h - h * h);
+
+  return (l * a) | 0;
 }
-
-
 console.log(tankvol(5, 7, 3848));
