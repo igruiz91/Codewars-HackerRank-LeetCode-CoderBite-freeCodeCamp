@@ -1,9 +1,9 @@
 def compute_depth(n):
-  nums = {""}
+  nums = set()
   for i in range(1,99):
     temp = [z for z in str(n*i)[::]]
     nums.update(temp)
-    if len(nums) == 11: return i
+    if len(nums) == 10: return i
 
 
 def compute_depth_up(n):
