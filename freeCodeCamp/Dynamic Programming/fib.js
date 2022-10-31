@@ -1,4 +1,4 @@
-const fibClassic = (n) => { 
+const fibClassic = (n) => {
   if(n<=2) return 1
   else return fib(n-1)+fib(n-2)
 }
@@ -13,3 +13,4 @@ const fib = (n, memo={}) => {
 
 
 console.log(fib(6));
+console.log(fibClassic(4));
