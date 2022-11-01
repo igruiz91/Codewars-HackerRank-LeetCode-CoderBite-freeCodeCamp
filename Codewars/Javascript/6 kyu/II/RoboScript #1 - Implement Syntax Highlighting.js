@@ -1,5 +1,4 @@
 function highlight(code) {
-  console.log(code);
   code = code.match(/[0-9]+|(.)\1+|[a-z]|\(|\)|\(\)/gi);
   const obj = { F: "pink", L: "red", R: "green" };
   return code
@@ -13,10 +12,22 @@ function highlight(code) {
     .join("");
 }
 
+
+const highlightUp = (code) => {
+  const color = (char) => {
+    return { F: "pink", L: "red", R: "green" }[char] || "orange";
+  };
+  return code.replace(
+    /([FRL]|\d+)\1*/g,
+    (m) => '<span style="color: ' + color(m[0]) + '">' + m + "</span>"
+  );
+};
+
+
 console.log(highlight("FFFR345F2LLL"));
-console.log(
-  highlight("12F2L(976FF624196F3840()3L2L380R8(R4()630R(0)LLL(4(3RR6)7")
-);
+console.log(highlightUp("FFFR345F2LLL"));
+console.log(highlight("12F2L(976FF624196F3840()3L2L380R8(R4()630R(0)LLL(4(3RR6)7"));
+console.log(highlightUp("12F2L(976FF624196F3840()3L2L380R8(R4()630R(0)LLL(4(3RR6)7"));
 
 /*
 12F2L(976FF624196F3840()3L2L380R8(R4()630R(0)LLL(4(3RR6)7
