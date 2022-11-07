@@ -1,0 +1,30 @@
+body{
+    font-family: 'Gill Sans', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.heading{
+    font-size: 35px;
+    font-weight: bolder;
+}
+.intro{
+    background-color: #2F5A78;
+    color: white;
+}
+
+.prof{
+    font-size: 20px;
+    font-weight: lighter;
+}
+.contactinfo{
+    font-size: 15px
+}
+.subheading{
+    font-size: 20px;
+    font-weight: bolder;
+    color: #2F5A78;
+}
+
+
+.icon{
+    color: #2F5A78;
+}
