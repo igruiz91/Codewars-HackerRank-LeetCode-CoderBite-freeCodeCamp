@@ -1,6 +1,8 @@
 def remove(s):
-    patter = r".\!*?$"
+  resp =[]
+  for h in s.split(" "):
+    if h!="Hi!": resp.append(h)
+  return "".join(resp)
 
 
-
-print(remove('Hi!'))
+print(remove("Hi! Hi!"))
