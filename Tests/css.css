@@ -1,19 +1,23 @@
-<<<<<<< HEAD
-.mostrar {
-  display: block;
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #f5c518;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #1f1f1f;
+  --gray-dark: #121212;
+  --primary: #007bff;
+  --secondary: #919191;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #f5c518;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #000000;
 }
-
-.ocultar {
-  display: none;
-}
-=======
-.mostrar{
-    display: block;
-}
-
-.ocultar{
-    display: none;
-}
-
-  
->>>>>>> c2af91535e2b7890338915f9852464db4e63d7b2
