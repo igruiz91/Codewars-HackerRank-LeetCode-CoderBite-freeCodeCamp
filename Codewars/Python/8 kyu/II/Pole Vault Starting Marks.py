@@ -5,5 +5,5 @@ def starting_mark(height):
 print(starting_mark(1.52))
 
 
-6.217105263157894
-5.830601092896175
+9.45/1.52
+10.67/1.83
