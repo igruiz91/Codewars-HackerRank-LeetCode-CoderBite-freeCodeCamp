@@ -2,8 +2,8 @@ class Converter():
     @staticmethod
     def to_ascii(h):
       return "".join([hex(ord(x))[2:] for x in h])
-    
-    def to_ascii_up(h):
+
+    def to_ascii_up(h): #python 2
       return h.decode("hex")
 
     @staticmethod
@@ -13,7 +13,7 @@ class Converter():
         resp+= "0x"+s[i:i+2]+" "
       return ''.join(chr(int(h, 16)) for h in resp.split())
 
-    def to_hex_up(s):
+    def to_hex_up(s): #python 2
       return s.encode("hex")
 
 s = "Look mom, no hands"
