@@ -18,9 +18,9 @@ const letters: object = {
   i: "\u00ef",
   y: "\u00ff",
 };
+
 export function heavyMetalUmlautsUp(boringText: String): String {
   return boringText.replace(/[AOaoEUeuIYiy]/g, (letter) => letters[letter]);
 }
-
+//console.log(heavyMetalUmlauts("Announcing the Macbook Air Guitar"));
 console.log(heavyMetalUmlauts("Announcing the Macbook Air Guitar"));
-console.log(heavyMetalUmlautsUp("Announcing the Macbook Air Guitar"));
