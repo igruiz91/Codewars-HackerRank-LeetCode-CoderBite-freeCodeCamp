@@ -75,7 +75,7 @@ def game():
 
 def start():
   print(logo)
-  game(game_cards)
+  game()
 
 
 start()
