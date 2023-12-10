@@ -15,14 +15,21 @@ class Snake:
   def get_heading(self):
     return self.header.heading()
 
+  def add_segment(self, position):
+    new_segment = Turtle(shape="square")
+    new_segment.color("white")
+    new_segment.penup()
+    new_segment.goto(position)
+    self.segments.append(new_segment)
+
+
   def create_snake(self):
     for i in range(0, 3):
-      new_segment = Turtle(shape="square")
-      new_segment.speed(10)
-      new_segment.color("white")
-      new_segment.penup()
-      new_segment.goto(-20 * i, 0)
-      self.segments.append(new_segment)
+      self.add_segment((-20 * i, 0))
+
+  def eat_food(self):
+    self.add_segment(self.segments[-1].position())
+
 
   def move(self):
     for i in range(len(self.segments) - 1, 0, -1):
@@ -31,6 +38,7 @@ class Snake:
       self.segments[i].goto(new_x, new_y)
     self.segments[0].forward(MOVE_DISTANCE)
 
+  #Snake Controls
   def up(self):
     if self.get_heading()==RIGHT or self.get_heading()==LEFT:
       self.header.setheading(UP)
@@ -42,9 +50,6 @@ class Snake:
   def left(self):
     if self.get_heading()==UP or self.get_heading()==DOWN:
       self.header.setheading(LEFT)
-
-
-
 
   def right(self):
     if self.get_heading()==UP or self.get_heading()==DOWN:
