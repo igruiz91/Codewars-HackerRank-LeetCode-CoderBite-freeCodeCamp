@@ -18,10 +18,7 @@ def print_states(info):
   state.write(f"{info.state.item()}")
 
 def states_to_learn():
-  missing_states = []
-  for state in states_data.state:
-    if state not in corrects:
-      missing_states.append(state)
+  missing_states = [states for states in states_data.state if states not in corrects]
   new_data = pandas.DataFrame(missing_states)
   new_data.to_csv(os.path.join(route, "learn_states.csv"))
 
