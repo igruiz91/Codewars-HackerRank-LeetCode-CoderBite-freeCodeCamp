@@ -23,8 +23,17 @@ letters_data_frame = pandas.read_csv(route)
 dict_nato = { row.letter: row.code for (_, row) in letters_data_frame.iterrows()}
 
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
-word = input("Enter a word: ").upper()
+
+def generate_word():
+  word = input("Enter a word: ").upper()
+  try:
+    word_nato = [dict_nato[letter] for letter in word]
+  except KeyError:
+    print("Sorry, only letters")
+    generate_word()
+  else:
+    print(word_nato)
+    
+generate_word()
 
 
-word_nato = [dict_nato[letter] for letter in word]
-print(word_nato)

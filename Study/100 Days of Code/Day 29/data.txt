@@ -1,0 +1,2 @@
+
+{"amazon": {"email": "igruiz@gmail.com", "password": "zqlxwm"}}
