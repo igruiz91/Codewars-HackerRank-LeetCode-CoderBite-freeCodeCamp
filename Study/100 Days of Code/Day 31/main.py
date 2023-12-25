@@ -12,7 +12,11 @@ card_back_path = os.path.join(route, "images", "card_back.png")
 wrong_button_path = os.path.join(route, "images", "wrong.png")
 right_button_path = os.path.join(route, "images", "right.png")
 
-data = pandas.read_csv(os.path.join(route, 'data', 'french_words.csv'))
+try:
+  data = pandas.read_csv(os.path.join(route, 'data', 'words_to_learn.csv'))
+except FileNotFoundError:
+  data = pandas.read_csv(os.path.join(route, 'data', 'french_words.csv'))
+
 learn  = data.to_dict(orient="records")
 current_word = {}
 
@@ -32,6 +36,12 @@ def swap_card():
   canvas.itemconfig(card_word, fill='white', text = current_word["English"])
   canvas.itemconfig(card, image=card_back_img)
 
+#words_to_learn.csv
+def remove_words():
+  learn.remove(current_word)
+  data  = pandas.DataFrame(learn)
+  data.to_csv(os.path.join(route, "data", "words_to_learn.csv"), index=False)
+  next_card()
 #
 window = Tk()
 window.title("Flashy")
@@ -55,7 +65,7 @@ button_wrong = Button(image=button_wrong_img, highlightthickness=0 , command=nex
 button_wrong.grid(row=1, column=0)
 
 button_right_img = PhotoImage(file = right_button_path)
-button_right = Button(image=button_right_img, highlightthickness=0 , command=next_card)
+button_right = Button(image=button_right_img, highlightthickness=0 , command=remove_words)
 button_right.grid(row=1, column=1)
 
 next_card()
