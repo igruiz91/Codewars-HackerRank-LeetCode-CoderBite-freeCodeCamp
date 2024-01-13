@@ -1,0 +1,55 @@
+<div class="square-up"></div>
+<div class="square-interior"></div>
+<div class="stripe-vert"></div>
+<div class="stripe-horz"></div>
+<style>
+  html {
+    background: #1A4341
+  }
+
+  .square-up {
+    z-index: 0;
+    position: absolute;
+    margin-left: 57px;
+    margin-top: -40;
+    width: 210;
+    height: 182;
+    border: 30px solid #F3AC3C;
+  }
+
+  .square-interior {
+    position: absolute;
+    margin-left: 117px;
+    margin-top: -40;
+    border: 30px solid #998235;
+    width: 90;
+    height: 122
+  }
+
+  .stripe-vert {
+    z-index: 2;
+    position: absolute;
+    text-align: center;
+    background: black;
+    margin: -10 177;
+    width: 30px;
+    height: 500;
+    background: #F3AC3C
+  }
+
+  .stripe-horz {
+    z-index: 1;
+    position: absolute;
+    background: black;
+    margin: 232 57;
+    width: 271px;
+    height: 30;
+    background: #998235
+  }
+
+  div {
+    width: 100px;
+    height: 100px;
+    background: #1A4341;
+  }
+</style>

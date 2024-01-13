@@ -7,7 +7,7 @@ def sol_equa(n):
                 x = (i + j) // 2
                 y = (j - i) // 4
                 res.append([x, y])
-    return res if res else "[]"
+    return res if res else []
 
 
 print(sol_equa(12))# [[4, 1]])
