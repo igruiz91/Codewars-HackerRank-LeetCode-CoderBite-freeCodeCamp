@@ -1,0 +1,56 @@
+@font-face {
+    font-family: "Raleway";
+    src: url("Raleway-SemiBold.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+*{
+	font-family: Raleway;
+}
+
+.container{
+	
+	border: 1px solid #219652;
+	margin: 10px auto;
+	width: 300px;
+	height: 400px;
+	padding: 5px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+abbr[title]{
+	border-bottom: 1px dotted #ccc;
+	color: red;
+	cursor: help;
+}
+
+span[data-twitter]{
+	color: blue;
+}
+
+input[type="text"]{
+	width: 200px;
+	margin: 5px 0;
+}
+
+input[type="button"]{
+	margin: 10px 0;
+}
+
+input[type="text"][disabled]{
+	border: 5px dotted Lightgreen;
+	background-color: #ccc;
+}
+
+
+/*a[href*=http]{ que contenga
+a[href$='.com']{ que termine con*/
+a[href^=http]{
+	padding-left: 20px;
+	background: url(link.png) left no-repeat;
+}

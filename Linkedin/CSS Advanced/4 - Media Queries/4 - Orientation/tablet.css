@@ -1,0 +1,27 @@
+/*Estilos para pantallas medianas o de tabletas*/
+
+@media all and (max-width: 1000px) and (min-width: 700px){
+	.socialBar {
+        display: none;
+    }
+
+    body {
+        background-color: #78BDBA;
+        color: white;
+    }
+}
+
+@media all and (orientation:landscape){
+	body{
+		flex-flow: row;
+	}
+}
+
+@media all and (orientation:portrait){
+	body{
+		flex-flow: column;
+	}
+	.sideBar > ul > li{
+		display: inline;
+	}
+}

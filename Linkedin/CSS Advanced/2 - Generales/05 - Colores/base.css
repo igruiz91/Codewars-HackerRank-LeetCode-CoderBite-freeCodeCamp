@@ -1,0 +1,17 @@
+.contenedor{
+
+	color: rgba(242,0,46,0.8);
+	
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 15px;
+	background-color: hsla(120, 50%, 50%, 0.4);
+	padding: 10px;
+	margin: 100px auto;
+	width: 300px;
+	height: 150px;
+	font-weight: bold;
+	font-size: 50px;
+}

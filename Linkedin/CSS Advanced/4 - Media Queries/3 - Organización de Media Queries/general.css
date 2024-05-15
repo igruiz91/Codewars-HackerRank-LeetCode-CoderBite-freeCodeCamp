@@ -1,0 +1,77 @@
+/*Estilos generales para el sitio*/
+@font-face {
+    font-family: "Raleway";
+    src: url("Raleway-SemiBold.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    font-family: Raleway;
+}
+
+body {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.sideBar,
+.socialBar {
+    align-self: flex-start;
+    margin-top: 50px;
+}
+
+.sideBar > ul {
+    list-style: none;
+}
+
+.sideBar li {
+    margin: 20px 0;
+}
+
+.sideBar li::before {
+    content: "";
+    padding-left: 20px;
+    background: url(link.png) left center no-repeat;
+}
+
+a {
+    text-decoration: none;
+    color: #F0473B;
+}
+
+.twitter,
+.facebook,
+.instagram {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #219652;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.twitter {
+    background: url(tw.png) center center no-repeat;
+}
+
+.facebook {
+    background: url(fb.png) center center no-repeat;
+}
+
+.instagram {
+    background: url(ins.png) center center no-repeat;
+}
+
+.container {
+    font-size: 12px;
+    border: 1px solid #219652;
+    margin: 50px;
+    width: 300px;
+    height: 100%;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

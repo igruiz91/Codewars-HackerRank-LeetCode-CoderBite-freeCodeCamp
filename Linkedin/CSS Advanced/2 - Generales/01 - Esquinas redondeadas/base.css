@@ -1,0 +1,16 @@
+.contenedor{
+	/*border-radius: 10px 20px 30px;*/
+	border-radius: 50%;
+	border-radius: 15px / 50px;
+	/*border-top-right-radius: 20px;
+	border-top-left-radius: 10px; 
+	border-bottom-left-radius: 50px;
+	border-bottom-right-radius: 20px;*/
+	background-color: LightGreen;
+	padding-top: 80px;
+	margin: 100px auto;
+	width: 300px;
+	height: 100px;
+	text-align: center;
+	font-weight: bold;
+}

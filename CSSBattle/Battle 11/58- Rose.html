@@ -1,0 +1,63 @@
+<div c></div>
+<div tr></div>
+<div mr></div>
+<div br></div>
+<div t></div>
+<div bt></div>
+<style>
+  body {
+    display: grid;
+    place-content: center;
+    place-items: center;
+    grid-template-rows: 30px 10px 30px 50px 0 90px;
+    background: #191919;
+  }
+
+  div {
+    width: 100px;
+    height: 30px;
+    background: #4F77FF;
+  }
+
+  [c] {
+    width: 30px;
+    border-radius: 30px;
+    border: 10px solid #191919;
+    z-index: 2
+  }
+
+  [tr] {
+    height: 30;
+    border-radius: 5px 5px 25px 25px;
+    z-index: 1;
+    box-shadow: 0px 0px 0px 10px #191919
+  }
+
+  [mr] {
+    width: 140px;
+    border-radius: 5px 5px 25px 25px
+  }
+
+  [br] {
+    height: 50px;
+    border-radius: 0 0 100px 100px;
+    background: linear-gradient(#191919 10px, #4F77FF 10px)
+  }
+
+  [bt],
+  [t] {
+    background: #F9E492
+  }
+
+  [t] {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    z-index: -1
+  }
+
+  [bt] {
+    height: 90px;
+    border-radius: 0 0 10px 10px;
+    width: 20px;
+  }

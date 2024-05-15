@@ -1,0 +1,65 @@
+@font-face {
+    font-family: "Raleway";
+    src: url("Raleway-SemiBold.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+*{
+	font-family: Raleway;
+}
+
+.container{
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #219652;
+	margin: 10px auto;
+	width: 300px;
+	height: 400px;
+	padding: 5px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+table{
+	border-collapse: collapse;
+}
+
+th{
+	background-color: #1270A1;
+	color: white;
+	padding: 10px;
+}
+
+td{
+	padding: 5px;
+	border: 1px solid #ccc;
+}
+
+
+tr:nth-child(even){
+	background-color: #A3D1B0;
+}
+/*tr:nth-last-child(2){*/
+tr:nth-child(odd){
+	background-color: #66FFFF;
+	/*background-color: red;*/
+}
+
+/*
+ecuación del tipo an+b
+ tr:nth-child(2n){
+tr:nth-child(3n){
+tr:nth-child(3n+6){
+tr:nth-child(-n+5){*/
+tr:nth-child(2){
+	background-color: #364F59;
+	color: white;
+}
+
+tr:hover{
+	background-color: #FFCC99;
+}

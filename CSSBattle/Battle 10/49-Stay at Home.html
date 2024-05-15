@@ -1,0 +1,56 @@
+<div class="triangle"></div>
+<div class="square"></div>
+<style>
+  body {
+    background: #6592CF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 51
+  }
+
+  .triangle {
+    position: relative;
+    width: 0px;
+    height: 0px;
+    top: -9;
+    border-bottom: 100px solid #243D83;
+    border-right: 100px solid transparent;
+    border-left: 100px solid transparent;
+  }
+
+  .square {
+    z-index: 19;
+    position: relative;
+    top: -29px;
+    width: 150px;
+    height: 120px;
+    background: #243D83;
+    border-radius: 10px
+  }
+
+  :before,
+  :after {
+    content: '';
+    position: absolute;
+  }
+
+  .square:before {
+    height: 10px;
+    width: 100px;
+    background: #EEB850;
+    border-radius: 10px;
+    top: 15;
+    left: 25
+  }
+
+  .square:after {
+    bottom: 0;
+    left: 50;
+    width: 50px;
+    border-top-style: solid;
+    border-top-color: #EEB850;
+    border-top-width: 50px;
+    border-radius: 10px 10px 0 0;
+  }

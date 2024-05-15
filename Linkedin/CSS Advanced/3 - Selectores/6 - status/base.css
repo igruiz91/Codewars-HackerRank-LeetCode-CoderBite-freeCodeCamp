@@ -1,0 +1,38 @@
+@font-face {
+    font-family: "Raleway";
+    src: url("Raleway-SemiBold.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+*{
+	font-family: Raleway;
+}
+
+.container{
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #219652;
+	margin: 10px auto;
+	width: 300px;
+	height: 400px;
+	padding: 5px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+input[type="checkbox"] + label{
+	/*color: #4F7584;*/
+}
+
+input[type="checkbox"]:checked + label{
+	color: #e60000;
+	text-shadow: 1px 2px 3px #219652;
+}
+
+input:enabled + label{
+	color: blue;
+}

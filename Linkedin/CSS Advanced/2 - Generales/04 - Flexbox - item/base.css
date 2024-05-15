@@ -1,0 +1,37 @@
+.contenedor{
+	
+	display: flex;
+
+	flex-flow: row wrap;
+
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 15px;
+	background-color: LightGreen;
+	padding: 10px;
+	margin: 100px auto;
+	width: 300px;
+	height: 150px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.item{
+	order: 2;
+	flex-grow: 1;
+	padding-top: 20px;
+	width: 80px;
+	height: 40px;
+	background-color: DarkOrange;
+	margin-left: 2px;
+}
+
+.item2{
+	order: 1;
+	align-self: flex-end;
+}
+
+.item3{
+	order: 2;
+}

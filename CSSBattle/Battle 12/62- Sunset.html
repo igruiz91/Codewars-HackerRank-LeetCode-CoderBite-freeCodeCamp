@@ -1,0 +1,51 @@
+<div p>
+  <div s></div>
+  <div l></div>
+  <div r></div>
+</div>
+<style>
+  body {
+    background: #191919;
+  }
+
+  body,
+  [p] {
+    display: grid;
+    place-content: center;
+  }
+
+  [p] {
+    width: 150px;
+    height: 200px;
+    background: #F2AD43;
+    border-radius: 75px 75px 20px 20px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  div>div {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+  }
+
+  [s] {
+    height: 60px;
+    width: 60px;
+    background: #FFF58F;
+    border-radius: 60px;
+    translate: 45px 20px;
+  }
+
+  [l] {
+    background: #E08027;
+    translate: -100px 100px;
+  }
+
+  [r] {
+    background: #824B20;
+    translate: 50px 100px;
+  }

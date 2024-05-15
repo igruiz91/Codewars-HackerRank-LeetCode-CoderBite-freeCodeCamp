@@ -9,7 +9,7 @@ function removeElement3(nums, val) {
         if(nums[j] !=val){
             nums[i]=nums[j]
             i++
-        }      
+        }
     }
     console.log(nums);
     return i
@@ -26,8 +26,9 @@ function removeElement(nums, val) {
             i++
         }
     }
-    return n    
+    return n
 }
+
 
 function otro(nums, val) {
     let numVals = 0;

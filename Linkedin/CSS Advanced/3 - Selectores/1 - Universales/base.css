@@ -1,0 +1,40 @@
+@font-face {
+    font-family: "Raleway";
+    src: url("Raleway-SemiBold.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Raleway;
+}
+
+.contenedor{
+	border-radius: 15px;
+	width: 90%;
+	height: 150px;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.contact {
+  width: 90px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  background-color: #A3D1B0;
+  margin: 20px;
+}
+
+.contactPhoto{
+	width: 100%;
+	height: 100px;
+	border-radius: 5px;
+	background: url(user.png) 50% 50% no-repeat, #209651;
+	background-size: auto;
+}
+
+.contactName {
+  padding: 10px;
+}

@@ -1,0 +1,52 @@
+<div>
+  <p></p>
+</div>
+<span l></span>
+<span v></span>
+<span r></span>
+<style>
+  body {
+    display: grid;
+    place-items: center;
+    background: #191919
+  }
+
+  div {
+    width: 150px;
+    height: 150px;
+    background: #dd6b4d;
+    border-radius: 50%;
+    background: #4F77FF;
+  }
+
+  p {
+    background: #191919;
+    height: 10px;
+    translate: 0 14px;
+    box-shadow: 0 40px #191919, 0 80px #191919;
+  }
+
+  span {
+    position: absolute;
+    border: solid 10px #191919;
+    height: 210px;
+    width: 210px;
+    border-radius: 50%;
+  }
+
+  [r] {
+    translate: 71px;
+  }
+
+  [l] {
+    translate: -71px
+  }
+
+  [v] {
+    border-radius: 0;
+    width: 10px;
+    border: 0;
+    background: #191919;
+    align-self: center;
+    justify-self: center
+  }

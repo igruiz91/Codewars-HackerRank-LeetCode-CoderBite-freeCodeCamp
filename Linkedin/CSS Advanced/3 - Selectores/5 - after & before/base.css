@@ -1,0 +1,47 @@
+@font-face {
+    font-family: "Raleway";
+    src: url("Raleway-SemiBold.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+*{
+	font-family: Raleway;
+}
+
+.container{
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #219652;
+	margin: 10px auto;
+	width: 300px;
+	height: 400px;
+	padding: 5px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.container > p{
+	border: 1px solid #1270A1;
+	background-color: #A3D180;
+	padding: 10px;
+	border-radius: 10px;
+	margin: 10px;
+}
+
+.container::before{
+	content: "Contenido antes del div";
+}
+
+.container::after{
+	content: "Contenido después del div";
+}
+
+a::before{
+	content: "el " attr(data-nombre) " ";
+	padding-left: 20px;
+	background: url(link.png) left center no-repeat;
+}

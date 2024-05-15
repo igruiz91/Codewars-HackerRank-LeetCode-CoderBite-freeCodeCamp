@@ -1,0 +1,16 @@
+/*Estilos para pantallas chicas o de teléfonos móviles*/
+
+/*@media all and (max-width: 699px) and (min-width: 520px) {*/
+@media all and (max-width: 699px) and (min-width: 10px), (min-width: 1200px) {
+    .socialBar {
+        display: none;
+    }
+
+    .sideBar {
+        display: none;
+    }
+
+    body {
+        background-color: #E0BD52;
+    }
+}

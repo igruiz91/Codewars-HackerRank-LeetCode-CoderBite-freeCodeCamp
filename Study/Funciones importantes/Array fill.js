@@ -14,5 +14,6 @@ const ArrayFrom = (len) => {
 
 
 console.log(ArrayFromIndex(10));
-console.log(ArrayFrom(10));
 console.log(ArrayFill(10));
+console.log(ArrayFrom(10));
+

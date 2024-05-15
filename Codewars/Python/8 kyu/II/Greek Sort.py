@@ -5,8 +5,7 @@ greek_alphabet = (
     'tau', 'upsilon', 'phi', 'chi', 'psi', 'omega')
 
 def greek_comparator(lhs, rhs):
-    return -0.0 if greek_alphabet.index(lhs) < greek_alphabet.index(rhs) else +0.0 if greek_alphabet.index(lhs) > greek_alphabet.index(rhs) else 0
-
+    return greek_alphabet.index(lhs) - greek_alphabet.index(rhs)
 
 
 

@@ -1,0 +1,79 @@
+@import url(general.css);
+@import url(desktop.css);
+@import url(tablet.css);
+@import url(smartphone.css);
+/*
+	1dppx es igual a 96dpi
+
+	-----
+
+	dppx más comunes:
+	1 - Gama Baja
+	1.3 
+	1.325
+	1.5
+	1.6667
+	2 - Iphone 6, Apple y gama media y alta
+	2.46 - Iphone 6s plus
+	3 - Galaxy serie s4 y s5
+	4 - Galaxy S6
+
+	Rangos de dpi
+	1dppx -> 96dpi
+	2dppx -> 177dpi
+	3dppx -> 249dpi
+	4dppx -> 384dpi
+
+*/
+
+@media (min-resolution: 1dppx) and (min-resolution: 96dpi) {
+    .container::before {
+        content: "--> Rango de 1dppx";
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .container {
+        background-color: snow;
+        color: black;
+        padding: 10px;
+    }
+}
+
+@media (min-resolution: 2dppx) and (min-resolution: 177dpi) {
+    .container::before {
+        content: "--> Rango de 2dppx";
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .container {
+        background-color: IndianRed;
+        color: white;
+        padding: 10px;
+    }
+}
+
+@media (min-resolution: 3dppx) and (min-resolution: 249dpi) {
+    .container::before {
+        content: "--> Rango de 3dppx";
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .container {
+        background-color: LimeGreen;
+        color: white;
+        padding: 10px;
+    }
+}
+
+@media (min-resolution: 4dppx) and (min-resolution: 384dpi) {
+    .container::before {
+        content: "--> Rango de 4dppx";
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .container {
+        background-color: Thistle;
+        color: white;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,69 @@
+<div t></div>
+<div h></div>
+<div c></div>
+<div b>
+  <p green></p>
+  <p yellow></p>
+
+  <style>
+    body {
+      background: #1A4341;
+      display: grid;
+      justify-items: center;
+      align-content: center;
+    }
+
+    div,
+    [t]:after {
+      background: #F3AC3C;
+      height: 20px;
+      width: 20px;
+    }
+
+    [t] {
+      width: 150px;
+      translate: 25px;
+      border-radius: 10px 10px 0;
+    }
+
+    [h] {
+      box-shadow: 90px -10px #F3AC3C;
+    }
+
+    [c] {
+      width: 50px;
+      border-radius: 10px 10px 0 0;
+    }
+
+    [b] {
+      width: 100px;
+      height: 140px;
+      border-radius: 20px;
+      background: linear-gradient(#F3AC3C 55px, #998235 55px);
+      display: flex;
+    }
+
+    [t]:after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      border-radius: 20px;
+      box-shadow: 0px 30px #998235, 0px 60px #998235;
+    }
+
+    p {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      translate: 0px 14px
+    }
+
+    [green] {
+      background: #998235;
+    }
+
+    [yellow] {
+      background: #F3AC3C
+    }

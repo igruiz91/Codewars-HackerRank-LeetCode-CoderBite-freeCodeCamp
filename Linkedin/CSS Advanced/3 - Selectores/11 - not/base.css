@@ -1,0 +1,49 @@
+@font-face {
+    font-family: "Raleway";
+    src: url("Raleway-SemiBold.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+*{
+	font-family: Raleway;
+}
+
+.container, .buttonContainer, .linkContainer, .listContainer{
+	font-size: 12px;
+	border: 1px solid #219652;
+	margin: 10px auto;
+	width: 300px;
+	height: 100%;
+	padding: 5px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.buttonContainer, .linkContainer, .listContainer{
+	height: 80px;
+	display: flex;
+	flex-flow: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.container :not(.description){
+	background-color: #ddd;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.container :not(:nth-child(3)){
+	color: #CC9900;
+}
+
+
+.buttonContainer button:not([disabled]){
+	background-color: #78BDBA;
+}
+
+.linkContainer a:not([href*=".com"]){
+	text-decoration: none;
+	color: #ccc;
+}

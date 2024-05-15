@@ -1,0 +1,26 @@
+<div>
+  <div></div>
+  <div></div>
+</div>
+<style>
+  body {
+    background: #191919;
+    display: grid;
+    place-content: center;
+  }
+
+  div {
+    display: flex;
+    width: 200px;
+    height: 150px;
+    overflow: hidden
+  }
+
+  div>div {
+    width: 100px;
+    height: 100px;
+    background: #4F77FF;
+    rotate: 45deg;
+    translate: 0 -70px;
+    box-shadow: 35px 35px #191919, 65px 65px #4F77FF, 70px 70px #4F77FF;
+  }

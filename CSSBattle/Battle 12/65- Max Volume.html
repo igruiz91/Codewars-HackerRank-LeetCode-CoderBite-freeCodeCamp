@@ -1,0 +1,80 @@
+<div l>
+  <div b></div>
+  <div v></div>
+</div>
+<div o>
+  <div f></div>
+  <div s></div>
+  <div t>
+    <style>
+      body {
+        background: #191919;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      [o] {
+        height: 50%;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        overflow: hidden
+      }
+
+      [l] {
+        height: 50%;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+      }
+
+      [b] {
+        height: 50px;
+        width: 50px;
+        translate: 25px 0;
+        border-radius: 10px 0 0 10px;
+        background: #5DBCF9;
+      }
+
+      [v] {
+        height: 0;
+        width: 0;
+        background: transparent;
+        border-right: 100px solid #5DBCF9;
+        border-top: transparent 100px solid;
+        border-bottom: transparent 100px solid;
+      }
+
+      [f],
+      [s],
+      [t] {
+        border-radius: 50%;
+        border: solid 10px red;
+        border-color: #5DBCF9 #5DBCF9 transparent transparent;
+        rotate: 45deg;
+        position: absolute;
+      }
+
+      [f] {
+        height: 80px;
+        width: 80px;
+        translate: -25px;
+        z-index: 2
+      }
+
+      [s] {
+        height: 130px;
+        width: 130px;
+        translate: -50px;
+        z-index: 1;
+      }
+
+      [t] {
+        height: 180px;
+        width: 180px;
+        translate: -75px;
+        z-index: 0;
+      }

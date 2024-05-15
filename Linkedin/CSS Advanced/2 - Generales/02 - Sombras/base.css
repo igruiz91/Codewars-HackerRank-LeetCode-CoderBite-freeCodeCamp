@@ -1,0 +1,28 @@
+.contenedor{
+	/* Sombras de caja
+	-> sombra horizontal
+	-> sombra vertical
+	-> blur
+	-> tamaño/alcance de la sombra
+	-> color
+	-> tipo de incrustado 
+	*/
+	box-shadow: 10px 10px 5px 0 #e60000 inset;
+
+  /* Sombras de texto
+  	-> sombra horizontal
+  	-> sombra vertical
+  	-> blur
+  	-> color
+  	*/
+	text-shadow: 10px 5px 3px #000;
+
+	border-radius: 15px;
+	background-color: LightGreen;
+	padding-top: 80px;
+	margin: 100px auto;
+	width: 300px;
+	height: 100px;
+	text-align: center;
+	font-weight: bold;
+}

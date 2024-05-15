@@ -1,0 +1,65 @@
+<div id="fingers">
+  <p id="thumb"></p>
+  <p></p>
+  <p id="middle"></p>
+  <p></p>
+  <p id="pinky"></p>
+</div>
+<div class="palm"></div>
+<div class="wrist"></div>
+<style>
+  body {
+    background: #F9E492;
+    display: grid;
+    place-content: center;
+    flex-direction: column;
+    place-items: center;
+  }
+
+  div {
+    width: 100px;
+    height: 50px;
+    background: #191919;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .palm {
+    height: 40px;
+  }
+
+  .wrist {
+    width: 50px;
+    height: 45px;
+    border-radius: 0 0 10px 10px
+  }
+
+  #thumb {
+    position: absolute;
+    rotate: 60deg;
+    border: #F9E492 5px solid;
+    translate: -3px 47px;
+    height: 65px
+  }
+
+  #fingers {
+    display: flex;
+    background: transparent;
+    align-items: end;
+    margin-top: 10px;
+  }
+
+  p {
+    height: 45px;
+    width: 20px;
+    background: #191919;
+    border-radius: 15px;
+    margin: 0 0 5px 5px
+  }
+
+  #middle {
+    height: 55
+  }
+
+  #pinky {
+    height: 35
+  }

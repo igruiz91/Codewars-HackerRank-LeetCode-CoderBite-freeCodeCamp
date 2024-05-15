@@ -1,0 +1,10 @@
+/*Estilos para pantallas grandes o de escritorio*/
+
+/*Operador 'and' */
+
+@media all and (min-width: 1001px) {
+    body {
+        background-color: #B3D68F;
+        color: white;
+    }
+} 

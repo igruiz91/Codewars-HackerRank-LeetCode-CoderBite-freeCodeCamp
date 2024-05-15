@@ -1,0 +1,38 @@
+<div class="rule">
+  <div a></div>
+  <div a></div>
+  <div a></div>
+  <div a></div>
+  <div a></div>
+  <div a></div>
+  <div a></div>
+</div>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #223E1F;
+  }
+
+  .rule {
+    height: 150px;
+    width: 250px;
+    background: linear-gradient(#0A9947 120px, #FEFF27 100px);
+    border-radius: 10px;
+    display: flex;
+    align-content: start;
+    justify-content: center
+  }
+
+  [a] {
+    width: 20px;
+    height: 60px;
+    background: #FEFF27;
+    margin: 0px 5px;
+    border-radius: 0 0 10px 10px
+  }
+
+  [a]:nth-child(4) {
+    height: 80px;
+  }

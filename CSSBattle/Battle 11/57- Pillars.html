@@ -1,0 +1,59 @@
+<div>
+  <p id="topLeft"></p>
+  <p id="topRight"></p>
+  <p id="bottomRight"></p>
+  <p id="bottomLeft"></p>
+</div>
+<style>
+  body {
+    background: #191919;
+    display: grid;
+    place-content: center;
+  }
+
+  div {
+    width: 110px;
+    height: 110px;
+    background: #4F77FF;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+  }
+
+  p {
+    background: #F9E492;
+    height: 45px;
+    width: 45px;
+    border-radius: 50px;
+    margin: 0;
+    box-shadow: 7.5px 7.5px 0 7.5px #191919;
+  }
+
+  p:before {
+    content: '';
+    display: block;
+    background: #4F77FF;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+  }
+
+  #topLeft {
+    translate: -20px -20px;
+  }
+
+  #topRight {
+    translate: 20px -20px;
+    scale: -1 1;
+  }
+
+  #bottomRight {
+    translate: -20px 20px;
+    scale: 1 -1;
+  }
+
+  #bottomLeft {
+    translate: 20px 20px;
+    scale: -1;
+  }

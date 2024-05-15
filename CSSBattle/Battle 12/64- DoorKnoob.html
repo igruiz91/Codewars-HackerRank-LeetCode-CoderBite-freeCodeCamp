@@ -1,0 +1,35 @@
+<div>
+  <style>
+    body {
+      background: #191919;
+    }
+    div,
+    :before,
+    :after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    div {
+      height: 100px;
+      width: 100px;
+      background: #E08027;
+      border: solid 30px #824B20;
+    }
+    div:before {
+      width: 80px;
+      height: 80px;
+      border: 20px solid #FFF58F;
+      border-color: transparent transparent #FFF58F #FFF58F;
+      transform: translate(-50%, -50%) rotate(-45deg)
+    }
+    div:after {
+      background: #FFF58F;
+      width: 20px;
+      height: 20px;
+      left: calc(50% - 50px);
+      box-shadow: 100px 0px #FFF58F
+    }

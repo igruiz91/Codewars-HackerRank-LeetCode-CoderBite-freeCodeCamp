@@ -1,0 +1,8 @@
+@import url(general.css);
+@import url(desktop.css);
+@import url(tablet.css);
+@import url(smartphone.css);
+
+body{
+    color: white;
+}
