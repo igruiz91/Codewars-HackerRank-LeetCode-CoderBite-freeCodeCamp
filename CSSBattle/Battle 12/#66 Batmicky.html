@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div bat>
+    <div dark>
+      <div head>
+        <div ears></div>
+      </div>
+    </div>
+  </div>
+  <div wings></div>
+
+  <style>
+    body {
+      display: grid;
+      place-items: center;
+      background: #191919;
+    }
+
+    [wings] {
+      position: absolute;
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      background: #191919;
+      translate: -125px;
+      -webkit-box-reflect: right 150px;
+      box-shadow: 65px 111px 0 51px #191919;
+    }
+
+    [bat] {
+      width: 240px;
+      height: 100px;
+      background: #F2AD43;
+    }
+
+    [bat],
+    [dark] {
+      display: grid;
+      justify-content: center;
+    }
+
+    [dark] {
+      width: 80px;
+      height: 30px;
+      align-items: end;
+      background: #191919;
+      border-radius: 0px 0px 10px 10px;
+    }
+
+    [head] {
+      width: 20px;
+      height: 20px;
+      background: #F2AD43;
+    }
+
+    [ears] {
+      width: 10px;
+      height: 10px;
+      background: #F2AD43;
+      border-radius: 50%;
+      translate: -50% -50%;
+      box-shadow: 20px 0 #F2AD43;
+    }</style>
+</body>
+</html>
+
