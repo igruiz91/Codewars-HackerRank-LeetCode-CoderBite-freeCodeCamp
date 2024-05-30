@@ -22,6 +22,8 @@ def check_palindrome(n):
 
 
 
+                print(check_palindrome('abcde'))
+
 def palindrome_up(n, s):
   if not (type(n) == type(s) == int) or n<0 or s<0: return "Not valid"
   res = []

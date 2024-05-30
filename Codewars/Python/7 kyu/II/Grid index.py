@@ -9,8 +9,4 @@ def grid_index(grid, indexes):
 
 
 
-
-
-
-
 print(grid_index([['m', 'y', 'e'], ['x', 'a', 'm'], ['p', 'l', 'e']], [1, 2, 3, 4, 5, 6, 7, 8, 9])) #myexample
