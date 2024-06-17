@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tl"></div>
+    <div id="tr"></div>
+    <div id="c"></div>
+    <div id="bl"></div>
+    <div id="br"></div>
+    <style>
+        body {
+            display: grid;
+            background: #191919;
+            grid-template: 60px 60px 60px / 70px 50px 70px;
+            place-content: center;
+            place-items: center;
+
+        }
+
+        div {
+            width: 50px;
+            height: 50px;
+            border: solid 10px #5DBCF9;
+            translate: 1px -1px;
+        }
+
+        #tl,
+        #bl {
+            grid-column: span 2;
+            justify-self: start;
+        }
+
+        #c {
+            grid-column: span 3;
+        }
+
+        #tl {
+            border-radius: 50% 50% 0
+        }
+
+        #bl {
+            border-radius: 50% 0 50% 50%
+        }
+
+        #br {
+            border-radius: 0% 50% 50%
+        }
+
+        #tr {
+            border-radius: 50% 50% 50% 0
+        }
+</style>
+</body>
+</html>
