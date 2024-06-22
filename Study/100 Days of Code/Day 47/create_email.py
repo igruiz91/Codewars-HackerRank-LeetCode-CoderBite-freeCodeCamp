@@ -1,15 +1,8 @@
-import os
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from dotenv import load_dotenv
+from config import EMAIL, SEND_TO, PASSWORD
+import smtplib
 
-load_dotenv()
-
-# EMAIL = os.environ["email"]
-# PASSWORD = os.environ["password"]
-EMAIL = os.getenv("email")
-PASSWORD = os.getenv("password")
-SEND_TO = "igonzruiz91@gmail.com"
 
 def create_email(product_title, product_price, amazon_url):
     msg = MIMEMultipart("alternative")
@@ -29,3 +22,14 @@ def create_email(product_title, product_price, amazon_url):
     """
     msg.attach(MIMEText(html_content, "html"))
     return msg
+
+
+def send_email(msg):
+    try:
+        with smtplib.SMTP("smtp.gmail.com", 587) as connection:
+            connection.starttls()
+            connection.login(user=EMAIL, password=PASSWORD)
+            connection.sendmail(from_addr=EMAIL, to_addrs=SEND_TO, msg=msg.as_string())
+        return  "Email sent successfully"
+    except smtplib.SMTPException as e:
+            return f"Error sending mail: {e}"

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="ear1"></div>
+    <div id="head">
+        <div id="eye1"></div>
+        <div id="eye2"></div>
+    </div>
+    <div id="ear2"></div>
+    <div id="nose"></div>
+    <div id="tusks"></div>
+    <style>
+        body {
+            background: #998235;
+            display: grid;
+            place-content: center;
+            place-items: center;
+            grid-template-columns: 60px 160px 60px;
+            margin: 0px;
+        }
+
+        #ear1,
+        #ear2 {
+            width: 80px;
+            height: 180px;
+            border-radius: 50%;
+            background: radial-gradient(80px 180px at 56px, #0B2429 50%, #1A4341 50%);
+        }
+
+        #ear2 {
+            scale: -1;
+            z-index: -1
+        }
+
+        #head {
+            height: 180px;
+            width: 180px;
+            border-radius: 50%;
+            background: #1A4341;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px
+        }
+
+        #eye1,
+        #eye2 {
+            height: 10px;
+            width: 20px;
+            border-radius: 0 0 20px 20px;
+            border: solid 10px #998235;
+            border-top: none;
+            background: #0B2429;
+            margin-top: 20px
+        }
+
+        #tusks {
+            position: absolute;
+            height: 40px;
+            width: 80px;
+            border-radius: 80px 80px 0 0;
+            border: solid 20px #FFFFFF;
+            border-bottom: none;
+            margin-top: 140;
+        }
+
+        #nose {
+            position: absolute;
+            height: 150px;
+            width: 40px;
+            background-color: #0B2429;
+            border-radius: 20px;
+            margin-top: 210;
+            z-index: 1
+        }
+    </style>
+</body>
+</html>
