@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="ear1"></div>
+    <div id="head">
+        <p></p>
+        <div id="hair"></div>
+        <p></p>
+        <div id="mout"></div>
+        <div id="nose"></div>
+    </div>
+    <div id="ear2"></div>
+    <style>
+        body {
+            display: grid;
+            place-content: center;
+            place-items: center;
+            background: #F3AC3C;
+            grid-template-columns: 25px 85px 25px;
+        }
+
+        #head {
+            width: 150px;
+            height: 150px;
+            background: #998235;
+            border-radius: 75px 75px 60px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            gap: 10px
+        }
+
+        #ear1,
+        #ear2 {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: solid 10px #998235;
+            background: #1A4341;
+            translate: 0px -55px;
+            z-index: -1
+        }
+
+        #hair {
+            background: #1A4341;
+            height: 40px;
+            width: 40px;
+            rotate: 45deg;
+            translate: 0 -78px
+        }
+
+        p {
+            height: 20px;
+            width: 20px;
+            background: #1A4341;
+            border-radius: 50%;
+            translate: 0 -5px;
+        }
+
+        #mout {
+            background: #FFFFFF;
+            height: 40px;
+            width: 100px;
+            position: absolute;
+            translate: 0px 40px;
+            border-radius: 15px 15px 35px 35px
+        }
+
+        #nose {
+            position: absolute;
+            background: #1A4341;
+            height: 30px;
+            width: 10px;
+            translate: 0 25px
+        }
+
+        #nose:before,
+        #nose:after {
+            content: "";
+            height: 10px;
+            width: 20px;
+            position: absolute;
+            border-radius: 0 0 20px 20px;
+            border: solid 10px #1A4341;
+            border-top: 0px;
+        }
+
+        #nose:before {
+            translate: 0px 19.5px
+        }
+
+        #nose:after {
+            translate: -30px 19.5px
+        }
+    </style>
+
+</body>
+</html>
