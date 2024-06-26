@@ -17,7 +17,7 @@
             <div class="card">
                 <h2>{{ blog.title}}</h2>
                 <p class="text">{{blog.subtitle}}</p>
-                <a href="{{ url_for('get_post', id=blog.id )}}">Read</a>
+                <a href="{{ url_for('get_post', id= blog.id )}}">Read</a>
             </div>
         </div>
     {% endfor %}
