@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="wings"></div>
+<div id="bee"></div>
+<style>
+    body {
+        display: grid;
+        place-content: center;
+        place-items: center;
+        grid-row: auto;
+        background: #998235
+    }
+
+    #wings {
+        display: flex;
+    }
+
+    #wings:after,
+    #wings:before {
+        content: "";
+        width: 75px;
+        height: 75px;
+        background: #FFF;
+        border-radius: 50% 50% 50% 0
+    }
+
+    #wings:before {
+        rotate: -90deg
+    }
+
+    #bee {
+        width: 150px;
+        height: 75px;
+        background: linear-gradient(to right,
+                #191919 24.5px,
+                #EFF33C 24.5px, #EFF33C 34.5px,
+                #191919 34.5px, #191919 60px,
+                #EFF33C 60px, #EFF33C 70px,
+                #191919 70px, #191919 95px,
+                #EFF33C 95px);
+        border-radius: 50px;
+    }
+
+    #bee:before {
+        content: "";
+        height: 15px;
+        width: 15px;
+        background: #191919;
+        border-radius: 50%;
+        position: absolute;
+        translate: 115px 20px
+    }
+</style>
+</body>
+</html>

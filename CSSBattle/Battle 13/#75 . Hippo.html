@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="ears"></div>
+<div id="head"></div>
+<div id="mouth"></div>
+<style>
+    body {
+        background: #191919;
+        display: grid;
+        place-content: center;
+        place-items: center;
+
+    }
+
+    #ears:before,
+    #ears:after {
+        content: "";
+        height: 20px;
+        width: 10px;
+        background: #000000;
+        border: #FE5F55 solid 5px;
+        border-radius: 50%;
+        position: absolute;
+        translate: -50px 20px;
+        rotate: -45deg
+    }
+
+    #ears:after {
+        translate: 31px 20px;
+        rotate: 45deg
+    }
+
+    #head {
+        width: 130px;
+        height: 100px;
+        background: #FE5F55;
+        translate: 0px 25px;
+        border-radius: 60px 60px 0 0;
+    }
+
+    #head:after {
+        content: '';
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        background: #000000;
+        position: absolute;
+        translate: 25px 50px;
+        box-shadow: 70px 0;
+    }
+
+    #mouth {
+        width: 150px;
+        height: 100px;
+        border-radius: 58px 58px 45px 45px;
+        background: #A64942;
+        translate: 0px -5px;
+    }
+
+    #mouth:before,
+    #mouth:after {
+        content: '';
+        height: 30px;
+        width: 20px;
+        background: #000000;
+        position: absolute;
+        translate: 25px 20px;
+        border-radius: 50%;
+        rotate: 45deg;
+    }
+
+    #mouth:after {
+        translate: 105px 20px;
+        rotate: -45deg;
+    }
+</style>
+</body>
+</html>
