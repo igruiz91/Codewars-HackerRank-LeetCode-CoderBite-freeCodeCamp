@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p></p>
+    </div>
+    <style>
+        body {
+            display: grid;
+            place-content: center;
+            place-items: center;
+            transform: rotate(45deg);
+            background: #243D83;
+        }
+    
+        div {
+            width: 120px;
+            height: 120px;
+            background: #243D83;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+    
+        div:after,
+        div:before {
+            content: '';
+            position: absolute;
+            height: 220px;
+            width: 100px;
+            background: #6592CF;
+            border-radius: 50px;
+            z-index: -1;
+            box-shadow: 0px 0px #6592CF
+        }
+    
+        div:before {
+            transform: rotate(90deg)
+        }
+    
+        p {
+            position: absolute;
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            background: #EEB850
+        }
+    </style>
+
+</body>
+</html>

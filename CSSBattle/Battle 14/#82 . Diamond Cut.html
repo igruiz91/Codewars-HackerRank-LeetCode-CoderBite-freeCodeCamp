@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="outter">
+        <div id="inner"></div>
+    </div>
+    <style>
+        body {
+            background: #F3AC3C;
+            display: grid;
+            place-content: center;
+            transform: rotate(45deg);
+        }
+
+        #inner {
+            width: 30px;
+            height: 30px;
+            background: #1a4341;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0px -65px #F3AC3C, -65px 0 #F3AC3C;
+        }
+
+        #outter {
+            width: 100px;
+            height: 100px;
+            border: solid 30px #998235;
+            background: #F3AC3C;
+            position: relative;
+            translate: -1px 1px
+        }
+    </style>
+</body>
+
+</html>
