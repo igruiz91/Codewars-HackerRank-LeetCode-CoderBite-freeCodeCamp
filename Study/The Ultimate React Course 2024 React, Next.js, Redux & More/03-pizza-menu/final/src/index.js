@@ -47,6 +47,8 @@ const pizzaData = [
     },
 ];
 
+
+
 function App() {
     return (
         <div className="container">
@@ -59,20 +61,22 @@ function App() {
 
 const Pizza = ({ name, ingredients, price, photoName, soldOut }) => {
     return (
-        <div className="pizzas">
-            <h3>{name}</h3>
-            <p>{ingredients}</p>
+        <li className={soldOut ? "pizza sold-out" : "pizza"}>
             <img src={photoName} alt={photoName} />
-            <span>{price}</span>
-        </div>
+            <div>
+                <h3>{name}</h3>
+                <p>{ingredients}</p>
+                <span>${price}.00</span>
+            </div>
+        </li>
     );
 };
 
 const Header = () => {
     return (
-        <div className="header">
+        <header className="header">
             <h1> FAST REACT PIZZA CO.</h1>
-        </div>
+        </header>
     );
 };
 
@@ -84,11 +88,13 @@ const Menu = () => {
                 Authentic Italian cuisine. 6 creative dishes to choose from. All
                 from our stone oven all organic, all delicious.
             </p>
-            <div className="pizza">
+
+            <ul className="pizzas">
                 {pizzaData.map(
                     ({ name, ingredients, price, photoName, soldOut }) => {
                         return (
                             <Pizza
+                                key={name}
                                 name={name}
                                 ingredients={ingredients}
                                 price={price}
@@ -98,17 +104,28 @@ const Menu = () => {
                         );
                     }
                 )}
-            </div>
+            </ul>
         </div>
     );
 };
 
 const Footer = () => {
+    const openHour = 9;
+    const closeHour = 22;
+    const hour = new Date().getHours();
+    const isOpen = openHour< hour && hour< closeHour 
     return (
-        <div className="footer">
-            <p>We're open until 22:00. Come visit us or order online</p>
-            <button className="btn">Order now</button>
-        </div>
+        <footer className="footer">
+            {isOpen && (
+                <div className="order">
+                    <p>
+                        We're open until {closeHour}:00. Come visit us or order
+                        online
+                    </p>
+                    <button className="btn">Order now</button>
+                </div>
+            )}
+        </footer>
     );
 };
 
@@ -119,6 +136,3 @@ root.render(
         <App />
     </React.StrictMode>
 );
-
-// React before 18
-// ReactDOM.render(<App />, document.getElementById("root"));

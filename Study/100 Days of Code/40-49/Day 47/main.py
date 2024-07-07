@@ -6,7 +6,7 @@ def main():
 
     try:
         product_title, product_price = scrape_amazon_product()
-        if product_price <= 700:
+        if product_price <= 900:
             msg = create_email(product_title, product_price, AMAZON_URL)
             result = send_email(msg)
             print(result)
