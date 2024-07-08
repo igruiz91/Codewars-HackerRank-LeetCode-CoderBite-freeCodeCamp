@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div p>
+        <div s></div>
+    </div>
+    <div p id="two">
+        <div s></div>
+    </div>
+    <style>
+        body {
+            background: #F3AC3C;
+            display: grid;
+            place-content: center;
+        }
+    
+        [s] {
+            width: 100px;
+            height: 100px;
+            background: #1A4341;
+            border-radius: 10px;
+        }
+    
+        [p] {
+            width: 130px;
+            height: 70px;
+            border-radius: 20px;
+            align-items: center;
+            background: #1A4341;
+            translate: -70px -15px
+        }
+    
+        [s]:after {
+            content: '';
+            display: block;
+            translate: 100px 0px;
+            height: 50px;
+            width: 50px;
+            background: #F3AC3C;
+            border-radius: 10px
+        }
+    
+        [s]:before {
+            content: '';
+            display: block;
+            translate: 100px 0px;
+            height: 50px;
+            width: 50px;
+            background: #1A4341;
+            border-radius: 10px
+        }
+    
+        #two {
+            translate: 70px 15px;
+            rotate: 180deg
+        }
+    </style>
+</body>
+</html>
