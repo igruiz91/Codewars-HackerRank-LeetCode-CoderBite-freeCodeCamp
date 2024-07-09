@@ -41,7 +41,8 @@ class Base(DeclarativeBase):
 
 db_name = "posts.db"
 db_path = os.path.join(os.path.dirname(__file__), "instance", db_name)
-app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{db_path}"
+# app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{db_path}"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("POSTGRESQL_DATABASE", f"sqlite:///{db_path}")
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
 
