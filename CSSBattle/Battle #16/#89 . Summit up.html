@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="circle">
+        <div id="triangle-black"></div>
+    </div>
+    <div id="triangle-blue"></div>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+            background: #191919;
+            margin: 0px;
+        }
+    
+        #circle {
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            background: #F9E492;
+            overflow: hidden;
+            z-index: 1
+        }
+    
+        #triangle-blue,
+        #triangle-black {
+            border-left: 141px solid transparent;
+            border-right: 141px solid transparent;
+            border-bottom: 141px solid #4F77FF;
+            bottom: 0;
+        }
+    
+        #triangle-blue {
+            position: absolute;
+        }
+    
+        #triangle-black {
+            border-bottom: 141px solid #191919;
+            translate: -41px 109px
+        }
+    </style>
+
+</body>
+
+</html>

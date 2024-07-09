@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="c">
+        <div></div>
+        <div></div>
+    </div>
+    <div id="c">
+        <div></div>
+        <div></div>
+    </div>
+    <style>
+        body {
+            margin: 0;
+            background: #F7F3DA;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh
+        }
+    
+        #c {
+            background: #D25B70;
+            border-radius: 10px
+        }
+    
+        #c div {
+            width: 200px;
+            height: 40px;
+            background: #D25B70;
+            border-radius: 0 10px 0 0;
+        }
+    
+        #c:nth-child(2) {
+            rotate: 180deg;
+        }
+    
+        #c div:nth-child(2) {
+            background: #F7F3DA;
+            border-radius: 0 20px 0 0;
+    
+        }
+    </style>
+</body>
+</html>
