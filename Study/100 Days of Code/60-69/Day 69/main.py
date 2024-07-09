@@ -20,10 +20,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 # Import your forms from the forms.py
 from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
+from dotenv import load_dotenv
 
+load_dotenv()
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "8BYkEfBA6O6donzWlSihBXox7C0sKR6b"
+app.config["SECRET_KEY"] = os.environ.get("FLASK_KEY")
 ckeditor = CKEditor(app)
 Bootstrap5(app)
 
@@ -80,12 +82,6 @@ class User(UserMixin, db.Model):
     password: Mapped[str] = mapped_column(String(250), nullable=False)
     posts = relationship("BlogPost", back_populates="author")
     comments = relationship("Comment", back_populates="comment_author")
-
-    def get_id(self):
-        return str(self.id)
-
-    def is_admin(self):
-        return self.id == 1 if self else False
 
 
 gravatar = Gravatar(
@@ -184,8 +180,7 @@ def get_all_posts():
     return render_template(
         "index.html",
         all_posts=posts,
-        admin=current_user.is_admin(),
-        logged_in=current_user.is_authenticated,
+        current_user=current_user,
     )
 
 
@@ -276,4 +271,4 @@ def contact():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5002)
+    app.run(debug=False, port=5002)
