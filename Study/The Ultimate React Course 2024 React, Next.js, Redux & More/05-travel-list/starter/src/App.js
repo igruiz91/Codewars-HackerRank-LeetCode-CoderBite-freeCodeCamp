@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const initialItems = [
     { id: 1, description: "Passports", quantity: 2, packed: false },
     { id: 2, description: "Socks", quantity: 12, packed: false },
@@ -20,15 +22,33 @@ const Logo = () => {
 };
 
 const Form = () => {
+    const [item, setItem] = useState("");
+    const [quantity, setQuantity] = useState(1);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(!item) return;
+        const newItem= {item, quantity, packed:false, id:Date.now()}
+        console.log(newItem)
+        setItem("");
+        setQuantity(1);
+    };
     return (
-        <form className="add-form">
+        <form className="add-form" onSubmit={handleSubmit}>
             <h3>What do you need for your trip?</h3>
-            <select>
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
+            <select value={quantity} onChange={(e) => setQuantity(+e.target.value)}>
+                {Array.from({ length: 20 }, (_, i) => i + 1).map((n) => (
+                    <option key={n} value={n}>
+                        {n}
+                    </option>
+                ))}
             </select>
-            <input type="text" placeholder="Item..." />
+            <input
+                type="text"
+                placeholder="Item..."
+                value={item}
+                onChange={(e) => setItem(e.target.value)}
+            />
             <button>Add</button>
         </form>
     );
@@ -47,7 +67,7 @@ const PackingList = () => {
 const Item = ({ item }) => {
     return (
         <li>
-            <span className={item.packed && "underlined" }>
+            <span className={item.packed && "underlined"}>
                 {item.quantity} {item.description}
             </span>
             <button onClick="">❌</button>
