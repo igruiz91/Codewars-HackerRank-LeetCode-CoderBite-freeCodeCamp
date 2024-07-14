@@ -27,7 +27,7 @@
                 {{ post.body|safe }}
                 <!--TODO: Only show Edit Post button if user id is 1 (admin user) -->
 
-                {% if admin %}
+                {% if current_user.id==1 or post.author.id == current_user.id%}
                 <div class="d-flex justify-content-end mb-4">
                     <a class="btn btn-primary float-right" href="{{url_for('edit_post', post_id=post.id)}}">Edit
                         Post</a>

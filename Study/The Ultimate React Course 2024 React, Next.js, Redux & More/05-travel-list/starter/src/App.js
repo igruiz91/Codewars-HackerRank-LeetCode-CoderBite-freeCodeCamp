@@ -45,6 +45,7 @@ const Logo = () => {
     return <h1>🏖️ Far Away 💼</h1>;
 };
 
+
 const Form = ({ addItems }) => {
     const [quantity, setQuantity] = useState(0);
     const [description, setDescription] = useState("");
@@ -80,6 +81,7 @@ const Form = ({ addItems }) => {
             </select>
             <input
                 type="text"
+                placeholder="Item..."
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Item..."
