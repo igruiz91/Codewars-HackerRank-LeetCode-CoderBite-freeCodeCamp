@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const initialItems = [
     { id: 1, description: "Passports", quantity: 2, packed: false },
     { id: 2, description: "Socks", quantity: 12, packed: false },
@@ -5,12 +7,36 @@ const initialItems = [
 ];
 
 function App() {
+    const [items, setItems] = useState(initialItems);
+
+    const handleDelete = (id) => {
+        if (!id) setItems([]);
+        setItems((items) => [...items].filter((item) => item.id !== id));
+    };
+
+    const handleCheck = (id) => {
+        setItems((items) =>
+            items.map((item) =>
+                item.id === id ? { ...item, packed: !item.packed } : item
+            )
+        );
+    };
+
+    const handleSort = (property) => {
+        setItems((items) => items.sort((a, b) => a.property < b.property));
+    };
+
     return (
         <div className="app">
             <Logo />
-            <Form />
-            <PackingList />
-            <Stats />
+            <Form addItems={setItems} />
+            <PackingList
+                items={items}
+                deleteItems={handleDelete}
+                checkItem={handleCheck}
+                sortItem={handleSort}
+            />
+            <Stats items={items} />
         </div>
     );
 }
@@ -19,46 +45,123 @@ const Logo = () => {
     return <h1>🏖️ Far Away 💼</h1>;
 };
 
-const Form = () => {
+
+const Form = ({ addItems }) => {
+    const [quantity, setQuantity] = useState(0);
+    const [description, setDescription] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!description) return;
+        const newItem = {
+            quantity,
+            description,
+            id: Date.now(),
+            packed: false,
+        };
+
+        addItems((items) => [...items, newItem]);
+
+        setQuantity(0);
+        setDescription("");
+    };
+
     return (
-        <form className="add-form">
+        <form className="add-form" onSubmit={handleSubmit}>
             <h3>What do you need for your trip?</h3>
-            <select>
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
+            <select
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+            >
+                {Array.from({ length: 20 }, (_, i) => i + 1).map((n) => (
+                    <option key={n} value={n}>
+                        {n}
+                    </option>
+                ))}
             </select>
-            <input type="text" placeholder="Item..." />
+            <input
+                type="text"
+                placeholder="Item..."
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Item..."
+            />
             <button>Add</button>
         </form>
     );
 };
-const PackingList = () => {
+const PackingList = ({ items, deleteItems, checkItem, handleSort }) => {
+    const [sortBy, setSortBy] = useState("id");
+    let sortedItems;
+    sortBy === "id"
+        ? (sortedItems = items)
+        : sortBy === "description"
+        ? (sortedItems = items
+              .slice()
+              .sort((a, b) => a.description.localeCompare(b.description)))
+        : (sortedItems = items
+              .slice()
+              .sort((a, b) => Number(a.packed)- Number(b.packed)));
     return (
         <div className="list">
             <ul>
-                {initialItems.map(({ id, ...item }) => {
-                    return <Item key={id} item={item} />;
+                {sortedItems.map(({ ...item }) => {
+                    return (
+                        <Item
+                            item={item}
+                            deleteItems={deleteItems}
+                            checkItem={checkItem}
+                        />
+                    );
                 })}
             </ul>
+            <div className="actions">
+                <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value)}
+                >
+                    <option value="id">SORT BY INPUT ORDER</option>
+                    <option value="description">SORT BY DESCRIPTION</option>
+                    <option value="packed">SORT BY PACKED STATUS</option>
+                </select>
+                <button onClick={() => deleteItems()}>CLEAR LIST</button>
+            </div>
         </div>
     );
 };
-const Item = ({ item }) => {
+const Item = ({ item, deleteItems, checkItem }) => {
     return (
-        <li>
-            <span className={item.packed && "underlined" }>
+        <li key={item.id}>
+            <input
+                checked={item.packed}
+                type="checkbox"
+                onChange={() => checkItem(item.id)}
+            ></input>
+            <span className={item.packed && "underlined"}>
                 {item.quantity} {item.description}
             </span>
-            <button onClick="">❌</button>
+            <button onClick={() => deleteItems(item.id)}>❌</button>
         </li>
     );
 };
-const Stats = () => {
+const Stats = ({ items }) => {
+    if (!items.length)
+        return (
+            <footer className="stats">
+                <em>Start adding some items to your packing list 🚀.</em>
+            </footer>
+        );
+
+    const numItem = items.length;
+    const numPacked = items.filter((item) => item.packed).length;
+    const percentage = Math.round((numPacked * 100) / numItem, 2) || 0;
+
     return (
         <footer className="stats">
             <em>
-                💼 You have X items on your list, and you already packed X (X%)
+                {percentage !== 100
+                    ? `💼 You have ${numItem} items on your list, and you already packed ${numPacked} (${percentage}%)`
+                    : "You got everything! Ready to go ✈️."}
             </em>
         </footer>
     );
