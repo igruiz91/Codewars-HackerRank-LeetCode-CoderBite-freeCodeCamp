@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <p></p>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #6592CF
+        }
+    
+        div {
+            width: 200px;
+            height: 200px;
+            background: #243D83;
+            border-radius: 50%;
+            box-shadow: 225px 0 #243D83, -225px 0 #243D83;
+        }
+    
+        p {
+            position: absolute;
+            height: 40px;
+            width: 300px;
+            background: #243D83;
+        }
+    
+        p:after {
+            content: '';
+            height: 40px;
+            width: 31px;
+            display: block;
+            position: absolute;
+            background: #6592CF;
+            border-radius: 30px;
+            translate: 22px 30px;
+            box-shadow: 225px 0 #6592CF, 0 -60px #6592CF, 225px -60px #6592CF
+        }
+    </style>
+</body>
+</html>
