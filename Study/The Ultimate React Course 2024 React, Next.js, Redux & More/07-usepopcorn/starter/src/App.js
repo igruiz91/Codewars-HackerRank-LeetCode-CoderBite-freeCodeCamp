@@ -199,6 +199,17 @@ const MovieDetails = ({
     setMovie,
     isLoading,
 }) => {
+    const {
+        Title,
+        Year,
+        Poster,
+        Plot,
+        Actors,
+        Director,
+        Genre,
+        imdbRating,
+        Runtime,
+    } = movie;
     useEffect(() => {
         async function fetchMovieByID() {
             const res = await fetch(
@@ -211,17 +222,10 @@ const MovieDetails = ({
         fetchMovieByID();
     }, [selectedId, setMovie]);
 
-    const {
-        Title,
-        Year,
-        Poster,
-        Plot,
-        Actors,
-        Director,
-        Genre,
-        imdbRating,
-        Runtime,
-    } = movie;
+    useEffect(() => {
+        if(!Title) return;
+        document.title = `Movie | ${Title}`;
+    }, [Title]);
 
     return (
         <div className="details">
@@ -350,7 +354,12 @@ const WatchedMovie = ({ movie, onDeleteMovie }) => {
                     <span>⏳</span>
                     <span>{movie.runtime}</span>
                 </p>
-                <button className="btn-delete" onClick={()=> onDeleteMovie(movie.imdbID)}>X</button>
+                <button
+                    className="btn-delete"
+                    onClick={() => onDeleteMovie(movie.imdbID)}
+                >
+                    X
+                </button>
             </div>
         </li>
     );

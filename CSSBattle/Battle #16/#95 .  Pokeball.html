@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokeball</title>
+</head>
+
+<body>
+<div></div>
+<div></div>
+<p></p>
+<style>
+    body {
+        display: grid;
+        place-content: center;
+        background: radial-gradient(circle, #781728 36%, #6CB3A9 1%)
+    }
+
+    p {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #F6DF96;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -73%);
+        border: solid #781728 10px
+    }
+
+    div {
+        width: 200px;
+        height: 100px;
+        border-radius: 100px 100px 0 0;
+        background: #D25B70;
+    }
+
+    div:nth-child(2) {
+        rotate: 180deg;
+        background: #FFFFFF;
+    }
+
+    div:after {
+        content: "";
+        background: #6CB3A9;
+        position: absolute;
+        height: 20px;
+        width: 10px;
+        translate: 0 90px;
+        z-index: 1
+    }
+
+    div:before {
+        content: "";
+        height: 20px;
+        position: absolute;
+        width: 60px;
+        background: #781728;
+        translate: 10px 90px;
+        z-index: 2
+    }
+</style>
+
+</body>
+
+</html>
