@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p></p>
+    <p></p>
+    <div square></div>
+    <style>
+        body {
+            background: #AC474B;
+        }
+
+        p {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            border-radius: 50% 50% 50% 0;
+            border: solid #fff 10px;
+            translate: 187px 26px
+        }
+
+        p:nth-child(1) {
+            translate: 157px 26px;
+            transform: scaleX(-1)
+        }
+
+        [square] {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: #FFF;
+            translate: 122px 102px;
+            box-shadow: 80px 0 #FFF, 0 80px #FFF, 80px 80px #FFF;
+        }
+    </style>
+
+</body>
+
+</html>

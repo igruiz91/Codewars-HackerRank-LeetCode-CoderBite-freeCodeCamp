@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div hat></div>
+    <div brim></div>
+    <div head></div>
+    <div neck></div>
+    <div body></div>
+    <style>
+        body {
+            background: #AC474B;
+            display: grid;
+            place-content: center;
+            place-items: center
+        }
+
+        [hat] {
+            height: 41px;
+            width: 40px;
+            background: linear-gradient(#0E1F2B 0 15px, #FFF 15px 25px, #0E1F2B 25px);
+            translate: 0 17px;
+            z-index: -1
+        }
+
+        [brim] {
+            height: 5px;
+            width: 60px;
+            background: #0E1F2B;
+            translate: 0 16px
+        }
+
+        [head] {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            background: #FFF;
+            z-index: -2;
+            translate: 0 11px
+        }
+
+        [head]:after {
+            content: '';
+            position: absolute;
+            height: 10px;
+            width: 10px;
+            border-radius: 10px;
+            background: #0E1F2B;
+            translate: 15px 18px;
+            box-shadow: 20px 0 #0E1F2B;
+        }
+
+        [neck] {
+            height: 10px;
+            width: 60px;
+            border-radius: 10px;
+            border: solid #AC474B 4px;
+            background: #FFA63F;
+            translate: 0 -5px;
+        }
+
+        [body] {
+            height: 100px;
+            width: 100px;
+            background: #FFF;
+            border-radius: 50%;
+            translate: 0 -17px;
+            z-index: -1
+        }
+    </style>
+</body>
+
+</html>

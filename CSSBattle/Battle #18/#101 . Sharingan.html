@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<div>
+    <p></p>
+    <p></p>
+    <p></p>
+</div>
+<style>
+    body {
+        background: #161616;
+        display: grid;
+        place-content: center
+    }
+
+    div {
+        width: 191px;
+        height: 191px;
+        border-radius: 50%;
+        border: solid #000 5px;
+        background: radial-gradient(circle, #000 0 25px, #E96A23 20px 35px, #000 25px 50px, #A22015 50px);
+        overflow: hidden;
+    }
+
+    p {
+        height: 73px;
+        width: 72px;
+        border-radius: 50%;
+        background: #A22015;
+        border: solid 15px;
+        translate: 45px 115px;
+    }
+
+    p:nth-child(2) {
+        translate: -30px -133px;
+    }
+
+    p:nth-child(3) {
+        translate: 120px -252px;
+    }
+</style>
+</body>
+
+</html>

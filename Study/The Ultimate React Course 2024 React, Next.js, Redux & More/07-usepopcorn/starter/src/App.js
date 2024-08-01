@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { tempMovieData, tempWatchedData } from "./data";
+import { tempMovieData     } from "./data";
 import StarRating from "./components/StarRating";
 import Loader from "./components/Loader";
 import ErrorMessage from "./components/ErrorMessage";
@@ -13,7 +13,10 @@ export default function App() {
     const [query, setQuery] = useState("interstellar");
     const [movie, setMovie] = useState({});
     const [movies, setMovies] = useState(tempMovieData);
-    const [watched, setWatched] = useState([]);
+    const [watched, setWatched] = useState(() => {
+        const storedFilms = localStorage.getItem("watched");
+        return JSON.parse(storedFilms);
+    });
     const [selectedMovieID, setSelectedMovieID] = useState(null);
 
     const [isLoading, setIsLoading] = useState(false);
@@ -26,7 +29,37 @@ export default function App() {
         (film) => film.imdbID === selectedMovieID
     )?.userRating;
 
+    const handleSelectMovie = (id) => {
+        setSelectedMovieID((selectedId) => (selectedId === id ? null : id));
+    };
+
+    const handleRateMovie = (rating) => {
+        const newWatchedMovie = {
+            imdbID: selectedMovieID,
+            imdbRating: movie.imdbRating,
+            title: movie.Title,
+            year: movie.Year,
+            poster: movie.Poster,
+            runtime: Number(movie.Runtime.split(" ")[0]),
+            userRating: rating,
+        };
+        setWatched([...watched, newWatchedMovie]);
+        setSelectedMovieID(null);
+    };
+    const handleDeleteMovie = (id) => {
+        setWatched((watched) => watched.filter((film) => film.imdbID !== id));
+    };
+    const handleCloseMovie = () => {
+        setSelectedMovieID(null);
+    };
+
     useEffect(() => {
+        localStorage.setItem("watched", JSON.stringify([watched]));
+    }, [watched]);
+
+    useEffect(() => {
+        const controller = new AbortController();
+
         async function fetchMovies() {
             try {
                 setIsLoading(true);
@@ -44,11 +77,12 @@ export default function App() {
 
                 if (data.Response === "False")
                     throw new Error("Movie not found");
-                console.log(data.Search);
                 setMovies(data.Search);
             } catch (err) {
                 console.error(err);
-                setError(err.message);
+                if (err !== "AbortError") {
+                    setError(err.message);
+                }
             } finally {
                 setIsLoading(false);
             }
@@ -59,35 +93,14 @@ export default function App() {
             setError("");
             return;
         }
-
+        handleCloseMovie();
         fetchMovies();
+
+        return function () {
+            controller.abort();
+        };
     }, [query]);
 
-    const handleSelectMovie = (id) => {
-        setSelectedMovieID((selectedId) => (selectedId === id ? null : id));
-    };
-
-    const handleRateMovie = (rating) => {
-        const newWatchedMovie = {
-            imdbID: selectedMovieID,
-            imdbRating: movie.imdbRating,
-            title: movie.Title,
-            year: movie.Year,
-            poster: movie.Poster,
-            runtime: Number(movie.Runtime.split(" ")[0]),
-            userRating: rating,
-        };
-
-        setWatched([...watched, newWatchedMovie]);
-        setSelectedMovieID(null);
-    };
-    const handleDeleteMovie = (id) => {
-        setWatched((watched) => watched.filter((film) => film.imdbID !== id));
-    };
-    const handleCloseMovie = () => {
-        setSelectedMovieID(null);
-    };
-    console.log(watched);
     return (
         <>
             <NavBar>
@@ -223,10 +236,26 @@ const MovieDetails = ({
     }, [selectedId, setMovie]);
 
     useEffect(() => {
-        if(!Title) return;
+        if (!Title) return;
         document.title = `Movie | ${Title}`;
+
+        return function () {
+            document.title = "usePopcorn";
+        };
     }, [Title]);
 
+    useEffect(() => {
+        function callback(e) {
+            if (e.code === "Escape") {
+                onCloseMovie();
+            }
+        }
+        document.addEventListener("keydown", callback);
+
+        return function () {
+            document.removeEventListener("keydown", callback);
+        };
+    }, [onCloseMovie]);
     return (
         <div className="details">
             {isLoading ? (
