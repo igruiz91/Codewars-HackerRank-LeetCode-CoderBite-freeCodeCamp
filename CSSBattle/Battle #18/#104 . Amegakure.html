@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="band">
+        <p></p>
+        <r></r>
+        <p></p>
+    </div>
+    <style>
+        body {
+            background: #000;
+            display: grid;
+            place-content: center;
+        }
+
+        #band {
+            width: 200px;
+            height: 80px;
+            border-radius: 10px;
+            background: linear-gradient(105deg, #9897AE 0px 82px, #C0C3DB 82px 132px, #9897AE 132px);
+            border-collapse: separate;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        #band:after {
+            content: "";
+            position: absolute;
+            translate: -20px -20px;
+            width: 240px;
+            height: 120px;
+            background: #37385A;
+            z-index: -1;
+            border-radius: 20px;
+        }
+
+        p {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background: #000;
+            margin: 15;
+            box-shadow: 0px 20px, 0 40px;
+        }
+
+        r {
+            height: 50px;
+            width: 10px;
+            background: #000;
+            margin-top: 15px;
+            border-radius: 10px;
+            translate: -30px;
+            box-shadow: 20px 0, 40px 0, 60px 0
+        }
+    </style>
+</body>
+
+</html>

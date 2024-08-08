@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="head">
+        <div id="mouth"></div>
+    </div>
+    <div id="hair"></div>
+    <div id="hair"></div>
+    <div id="hair"></div>
+    <div id="hair"></div>
+    <div id="suffle"></div>
+    <style>
+        body {
+            background: #161616;
+            display: grid;
+            place-items: center;
+        }
+    
+        #head {
+            width: 80px;
+            height: 60px;
+            border-radius: 0 0 50px 50px;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            margin-top: 72px;
+            background: linear-gradient(to right, #FFF 0% 50%, #FFDEB9 50% 100%)
+        }
+    
+        #mouth {
+            height: 10px;
+            width: 20px;
+            background: #000;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 10px
+        }
+    
+        #hair {
+            position: absolute;
+            height: 31px;
+            width: 50px;
+            background: #EBAE11;
+            border-radius: 0 0 0 50px;
+            rotate: 13deg;
+            z-index: -1;
+            translate: -38px 23px;
+        }
+    
+        #hair:nth-child(2) {
+            transform: scaleX(-1);
+            translate: 37px 23px;
+            rotate: -13deg
+        }
+    
+        #hair:nth-child(3) {
+            transform: scaleX(-1);
+            translate: 27px -1px;
+            rotate: -56deg;
+            z-index: 1;
+            width: 60;
+            border-radius: 0 0 60px 60px;
+        }
+    
+        #hair:nth-child(4) {
+            translate: -27px -1px;
+            rotate: 56deg;
+            z-index: 1;
+            width: 60;
+            border-radius: 0 0 60px 60px;
+        }
+    
+        #suffle {
+            position: fixed;
+            height: 119;
+            width: 119;
+            top: 66px;
+            left: 182px;
+            background: #EBAE11;
+            border-radius: 50%;
+            clip-path: circle(50% at -23.4px 50%);
+            ;
+        }
+    </style>
+</body>
+</html>

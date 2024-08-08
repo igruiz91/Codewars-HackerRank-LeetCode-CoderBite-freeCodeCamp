@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 
 export default function StartRating({
@@ -10,8 +10,11 @@ export default function StartRating({
 }) {
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
+    const countVotingRef = useRef(0);
 
-   
+    useEffect(() => {
+        if (rating) countVotingRef.current += 1;
+    }, [ rating]);
 
     return (
         <div className="rating">
@@ -51,7 +54,10 @@ export default function StartRating({
                 <p>{hover ? hover : rating}</p>
             </div>
             {rating && (
-                <button className="btn-add" onClick={() => onRateMovie(rating)}>
+                <button
+                    className="btn-add"
+                    onClick={() => onRateMovie(rating, countVotingRef)}
+                >
                     + Add to list
                 </button>
             )}
